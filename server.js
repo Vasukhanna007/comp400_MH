@@ -18,12 +18,12 @@ app.use(bodyParser.json());
 
 app.post('/patient/:patientId',(req,res) => {
     
-    var patient1= new Patient(req.body.name,req.body.age, req.body.medicalhistory);
+    var patient1= new Patient(req.body.name,req.body.dob, req.body.gender,req.body.email,req.body.phone,req.body.language,req.body.medicalhistory);
     // var patient1= new Patient("vasu","20", "[anxiety, ADHD]");
 
     console.log(patient1)
     const destinationFile = `${DATA_DIR}/patient/${req.params.patientId}`;
-    console.log(destinationFile)
+    // console.log(destinationFile)
 
     fs.writeFileSync(destinationFile,JSON.stringify(patient1, null, 2) , 'utf-8');
     res.send();
