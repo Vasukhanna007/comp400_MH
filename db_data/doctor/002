@@ -1,0 +1,11 @@
+{
+  "name": "vasu",
+  "dob": "10/01/2000",
+  "gender": "M",
+  "email": "vasu@mail.com",
+  "phone": "541003941",
+  "language": "['English']",
+  "certifications": "['genetics']",
+  "remainingVacationDays": 14,
+  "speciality": "['neuro']"
+}
