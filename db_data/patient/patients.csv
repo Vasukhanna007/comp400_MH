@@ -1,9 +1,10 @@
 {
-  "name": "parth",
+  "name": "arth",
   "dob": "10/01/2000",
   "gender": "M",
   "email": "vasu@mail.com",
   "phone": "541003941",
   "language": "['English']",
+  "patientId": "541003941arth",
   "medicalhistory": "['anxiety']"
 }

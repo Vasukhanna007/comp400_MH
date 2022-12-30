@@ -1,11 +1,12 @@
 {
-  "name": "vasu",
+  "name": "ja",
   "dob": "10/01/2000",
   "gender": "M",
   "email": "vasu@mail.com",
   "phone": "541003941",
   "language": "['English']",
-  "certifications": "['genetics']",
+  "certifications": "['mind']",
   "remainingVacationDays": 14,
-  "speciality": "['neuro']"
+  "doctorId": "541003941ja",
+  "speciality": "['mind']"
 }

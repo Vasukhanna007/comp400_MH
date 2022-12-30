@@ -5,6 +5,8 @@ class Patient extends Person {
         
         //'super' calls the parent constructor
         super(name,dob,gender,email,phone,language);
+        this.patientId = phone+name;
+
         this.medicalhistory = medicalhistory;
     }
 

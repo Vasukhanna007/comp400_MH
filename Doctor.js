@@ -5,6 +5,8 @@ class Doctor extends HospitalEmployee {
         
         //'super' calls the parent constructor
         super(name,dob,gender,email,phone,language,certifications);
+        this.doctorId = phone+name;
+
         this.speciality = speciality;
 
     }

@@ -1,0 +1,27 @@
+{
+  "patient": {
+    "name": "arth",
+    "dob": "10/01/2000",
+    "gender": "M",
+    "email": "vasu@mail.com",
+    "phone": "541003941",
+    "language": "['English']",
+    "patientId": "541003941arth",
+    "medicalhistory": "['anxiety']"
+  },
+  "doctor": {
+    "name": "ja",
+    "dob": "10/01/2000",
+    "gender": "M",
+    "email": "vasu@mail.com",
+    "phone": "541003941",
+    "language": "['English']",
+    "certifications": "['mind']",
+    "remainingVacationDays": 14,
+    "doctorId": "541003941ja",
+    "speciality": 14
+  },
+  "date": "31/12/2022",
+  "time": "4:00 pm",
+  "appointmentId": "011e"
+}
