@@ -1,10 +1,10 @@
-{
-  "name": "arth",
-  "dob": "10/01/2000",
-  "gender": "M",
-  "email": "vasu@mail.com",
-  "phone": "541003941",
-  "language": "['English']",
-  "patientId": "541003941arth",
-  "medicalhistory": "['anxiety']"
-}
+'name','dob','gender','email','phone','language','patientId','password','medicalhistory'
+"arth","10/01/2000","M","vasu@mail.com","541003941","['English']","541003941arth"
+"arth","10/01/2000","M","vasu@mail.com","541003941","['English']","541003941arth"
+"arth","10/01/2000","M","vasu@mail.com","541003941","['English']","541003941arth"
+"arth","10/01/2000","M","vasu@mail.com","541003941","['English']","541003941arth"
+"arth","10/01/2000","M","vasu@mail.com","541003941","['English']","541003941arth"
+"arth","10/01/2000","M","vasu@mail.com","541003941","['English']","541003941arth"
+"arth","10/01/2000","M","vasu@mail.com","541003941","['English']","541003941arth"
+"arth","10/01/2000","M","vasu@mail.com","541003941","['English']","541003941arth","password"
+"arth","10/01/2000","M","vasu@mail.com","541003941","['English']","541003941arth","password","['anxiety']"
