@@ -1,3 +1,4 @@
-"name", "dob", "gender", "email", "phone", "language", "certifications", "remainingVacationDays", "doctorId", "speciality"
-"arth","10/01/2000","M","vasu@mail.com","541003941","['English']","['mind']",14,"541003941arth","[mind]"
-"arth","10/01/2000","M","vasu@mail.com","541003941","['English']","['mind']",14,"541003941arth","[mind]"
+"name", "dob", "gender", "email", "phone", "language", "certifications", "remainingVacationDays", "doctorId", "speciality","password"
+"ru","10/01/2000","M","ru@mail.com","541003941","['English']","['mind']",14,"541003941ru","[mind]","jea"
+"pa","10/01/2000","M","pa@mail.com","541003941","['English']","['mind']",14,"541003941pa","[mind]","ghj"
+"arth","10/01/2000","M","vasu@mail.com","541003941","['English']","['mind']",14,"541003941arth","[mind]","password"
