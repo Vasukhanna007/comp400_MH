@@ -1,0 +1,38 @@
+<nav class="navbar navbar-light bg-primary">
+
+  <div class="container-fluid">
+    <h1 style="color:white">MH</h1>
+    <div class="d-flex">
+      <!-- <button (click)="clickAddPatient()" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success"> Add Patient</button> -->
+      <button routerLink="/login" class="btn btn-danger"> Logout</button>
+
+    </div>
+  </div>
+</nav>
+
+<table class="table mt-3">
+  <thead>
+    <tr>
+    <th scope="col"> Appointment ID</th>
+    <th scope="col">date</th>
+    <th scope="col">Name</th>
+    <th scope="col">Email</th>
+    <th scope="col">Action</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of AppointmentData">
+      <td>{{row.id}}</td>
+      <td>{{row.date| date:'dd/MM/yyyy'}}</td>
+      <td>{{row.name}}</td>
+      <td>{{row.email}}</td>
+      <td>
+        <button (click)="cancelAppointment(row)"class="btn btn-danger mx-3">Delete</button>
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
