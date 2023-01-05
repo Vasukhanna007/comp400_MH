@@ -1,3 +1,14 @@
+const http = require('http');
+const app = require('./app');
+
+const port = process.env.PORT || 3001;
+
+const server = http.createServer(app);
+
+server.listen(port);
+
+
+
 // const express = require('express');
 // const bodyParser   =  require('body-parser');
 // const { parse } = require('csv-parse');
@@ -149,12 +160,4 @@
 //     console.log('Listening on port 3001!');
 // });
 
-const http = require('http');
-const app = require('./app');
-
-const port = process.env.PORT || 3001;
-
-const server = http.createServer(app);
-
-server.listen(port);
 

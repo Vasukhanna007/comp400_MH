@@ -1,0 +1,37 @@
+<mat-toolbar *ngIf="successMsg" color="accent">{{ successMsg }}</mat-toolbar>
+<mat-toolbar *ngIf="errorMsg" color="warn">{{ errorMsg }}</mat-toolbar>
+
+<nav class="navbar navbar-light bg-primary">
+
+  <div class="container-fluid">
+    <h1 style="color:white">MH</h1>
+    <div class="d-flex">
+      <!-- <button (click)="clickAddPatient()" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success"> Add Patient</button> -->
+      <button routerLink="/dashboard" class="btn btn-success"> View Doctors</button>
+      <button class="btn btn-success"> Edit profile</button>
+      <button routerLink="/login" class="btn btn-danger"> Logout</button>
+
+
+
+    </div>
+  </div>
+</nav>
+
+<div class="form-container">
+
+  <form form [formGroup]="formValue">
+    <mat-form-field>
+      <input formControlName="date" name="appointmentDate" matInput [matDatepicker]="picker" placeholder="Choose a date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <input formControlName="name" name="name" matInput placeholder="Name">
+    </mat-form-field>
+    <mat-form-field>
+      <input formControlName="email" name="email" matInput placeholder="Email" type="email">
+    </mat-form-field>
+    <button (click)="createAppointment()" mat-raised-button color="primary">Make Appointment</button>
+  </form>
+
+</div>

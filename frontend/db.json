@@ -1,0 +1,96 @@
+{
+  "posts": [
+    {
+      "id": 2,
+      "name": "vasu",
+      "dob": "vasu.khanna@mail.mcgill.ca",
+      "gender": "vasu.khanna@mail.mcgill.ca",
+      "email": "",
+      "phone": "15149920378",
+      "language": "english"
+    },
+    {
+      "id": 3,
+      "name": "vasu.khanna@mail.mcgill.ca",
+      "dob": "vasu.khanna@mail.mcgill.ca",
+      "gender": "vasu.khanna@mail.mcgill.ca",
+      "email": "",
+      "phone": "15149920378",
+      "language": "vasu.khanna@mail.mcgill.ca"
+    }
+  ],
+  "signupUsers": [
+    {
+      "name": "",
+      "dob": "",
+      "gender": "",
+      "phone": "",
+      "email": "",
+      "password": "",
+      "id": 1
+    },
+    {
+      "name": "",
+      "dob": "",
+      "gender": "",
+      "phone": "",
+      "email": "",
+      "password": "",
+      "id": 2
+    },
+    {
+      "name": "",
+      "dob": "",
+      "gender": "",
+      "phone": "",
+      "email": "",
+      "password": "",
+      "id": 3
+    },
+    {
+      "name": "vasu",
+      "dob": "10/01/2000",
+      "gender": "M",
+      "phone": 5149920378,
+      "email": "vasu.khanna@mail.mcgill.ca",
+      "password": "1234",
+      "id": 4
+    },
+    {
+      "name": "15149920378",
+      "dob": "",
+      "gender": "",
+      "phone": "",
+      "email": "vasu.khanna@mail.mcgill.ca",
+      "password": "123",
+      "id": 5
+    }
+  ],
+  "BookApointment": [],
+  "appointment-list": [
+    {
+      "date": "10/01/2022",
+      "name": "vasu",
+      "email": "vasu.khanna@mail.mcgill.ca",
+      "id": "1"
+    },
+    {
+      "id": "O1vgYtj",
+      "name": "Vasu Khanna",
+      "email": "vasu.khanna@mail.mcgill.ca",
+      "date": "2023-01-04T05:00:00.000Z"
+    },
+    {
+      "id": "y1Un8F1",
+      "name": "Vasu Khanna",
+      "email": "vasu.khanna@mail.mcgill.ca",
+      "date": "2023-01-05T05:00:00.000Z"
+    },
+    {
+      "id": "nceLhow",
+      "name": "Vasu Khanna",
+      "email": "vasu.khanna@mail.mcgill.ca",
+      "date": "2023-01-05T05:00:00.000Z"
+    }
+  ]
+}
