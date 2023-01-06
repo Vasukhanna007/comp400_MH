@@ -8,11 +8,12 @@ import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'login', pathMatch:'full'},
-  {path:'login', component:LoginComponent},
-  {path:'signup', component:SignupComponent},
-  {path: 'dashboard', component: EmployeeDashboardComponent},
-  {path:'appointment-list', component: AppointmentListComponent},
-  {path:'home', component: HomeComponent},
+  {path:'login', component:LoginComponent},//make login work
+  {path:'signup', component:SignupComponent}, 
+  {path: 'dashboard', component: EmployeeDashboardComponent},// doctor should see this, should add similar functionality for edit patient(one can only edit oneself) to patient dashboard
+  {path:'appointment-list', component: AppointmentListComponent},//doctor should see
+  {path:'home', component: HomeComponent},//appointment booking page both should be able to access
+
 
 ];
 
