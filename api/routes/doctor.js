@@ -4,10 +4,12 @@ const fs = require('fs');
 const { parse } = require('csv-parse');
 var Doctor = require('../../Doctor.js');
 path = require('path')
+let csvToJson = require('convert-csv-to-json');
+
 
 // const DATA_DIR= './db_data';
 let reqPath = path.join(__dirname,'..','..', 'db_data','doctor','doctors.csv');
-console.log(reqPath)
+// console.log(reqPath)
 
 
 
@@ -18,13 +20,13 @@ router.post('/',(req,res,next) => {
 
     console.log(doctor1)
     const destinationFile = reqPath;
-    console.log(destinationFile)
-    let count  =  -2
+    // console.log(destinationFile)
+    let count  =  -2 // no of autofill values
     console.log(Object.keys(req.body).length)
-    arr = console.log(Object.values(doctor1))
+    // arr = console.log(Object.values(doctor1))
     for (const [key, value] of Object.entries(doctor1)) {
        count+=1
-       fs.appendFileSync(destinationFile,JSON.stringify(value));
+       fs.appendFileSync(destinationFile,JSON.stringify(value).replace(/^"|"$/g, ''));
        if(count===Object.keys(req.body).length){
            fs.appendFileSync(destinationFile,"\n");
            break;
@@ -40,13 +42,22 @@ router.post('/',(req,res,next) => {
 router.get('/',(req,res,next) => {
     const destinationFile = reqPath;
     // console.log(destinationFile)
-    try {
-        const data = fs.readFileSync(destinationFile);
-        res.send(data);
+    // try
+    
+        let arr =[];
+        let json = csvToJson.fieldDelimiter(',').getJsonFromCsv(destinationFile);
+        for(let i=0; i<json.length;i++){
+            console.log(json[i]);
+            arr.push(json[i])
 
-    } catch (error) {
-        res.send('null');
-    }
+        }
+        const data = fs.readFileSync(destinationFile);
+        res.send(arr); 
+
+
+    // } catch (error) {
+    //     res.send('null');
+    // }
 });
 
 module.exports = router;
