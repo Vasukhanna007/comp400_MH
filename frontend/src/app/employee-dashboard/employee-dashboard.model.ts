@@ -1,3 +1,4 @@
+//this should be patient model
 export class EmployeeModel{
   id: number =0;
   name: string = '';

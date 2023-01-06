@@ -21,33 +21,6 @@
   ],
   "signupUsers": [
     {
-      "name": "",
-      "dob": "",
-      "gender": "",
-      "phone": "",
-      "email": "",
-      "password": "",
-      "id": 1
-    },
-    {
-      "name": "",
-      "dob": "",
-      "gender": "",
-      "phone": "",
-      "email": "",
-      "password": "",
-      "id": 2
-    },
-    {
-      "name": "",
-      "dob": "",
-      "gender": "",
-      "phone": "",
-      "email": "",
-      "password": "",
-      "id": 3
-    },
-    {
       "name": "vasu",
       "dob": "10/01/2000",
       "gender": "M",
@@ -55,15 +28,6 @@
       "email": "vasu.khanna@mail.mcgill.ca",
       "password": "1234",
       "id": 4
-    },
-    {
-      "name": "15149920378",
-      "dob": "",
-      "gender": "",
-      "phone": "",
-      "email": "vasu.khanna@mail.mcgill.ca",
-      "password": "123",
-      "id": 5
     }
   ],
   "BookApointment": [],
