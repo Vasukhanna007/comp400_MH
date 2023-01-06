@@ -24,7 +24,7 @@ export class EmployeeDashboardComponent implements OnInit{
       email: [''],
       phone: [''],
       language: [''],
-      medical: ['']
+      medicalHistory: ['']
     })
     this.getAllPatients();
   }
@@ -73,7 +73,7 @@ deletePatient(row: any){
 }
 onEdit(row:any){
   this.showAdd = false;
-  this.showUpdate= true;
+  this.showUpdate= false;
   this.employeeModelObj.id = row.id;
 
   this.formValue.controls['name'].setValue(row.name)
