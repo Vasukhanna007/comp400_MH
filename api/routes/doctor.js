@@ -24,6 +24,7 @@ router.post('/',(req,res,next) => {
     let count  =  -2 // no of autofill values
     console.log(Object.keys(req.body).length)
     // arr = console.log(Object.values(doctor1))
+    
     for (const [key, value] of Object.entries(doctor1)) {
        count+=1
        fs.appendFileSync(destinationFile,JSON.stringify(value).replace(/^"|"$/g, ''));

@@ -26,7 +26,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let row of employeeData">
-      <td>{{row.id}}</td>
+      <td>{{row.patientId}}</td>
       <td>{{row.name}}</td>
       <td>{{row.dob}}</td>
       <td>{{row.gender}}</td>
@@ -72,7 +72,7 @@
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Email ID</label>
-            <input type="email" formControlName="emailID" class="form-control" id="exampleInputPassword1">
+            <input type="email" formControlName="email" class="form-control" id="exampleInputPassword1">
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Phone No</label>

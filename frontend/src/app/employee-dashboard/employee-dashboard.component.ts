@@ -35,6 +35,7 @@ export class EmployeeDashboardComponent implements OnInit{
 
   }
   postPatientDetails(){
+    this.employeeModelObj.patientId = this.formValue.value.phone;
     this.employeeModelObj.name = this.formValue.value.name;
     this.employeeModelObj.dob = this.formValue.value.dob;
     this.employeeModelObj.gender = this.formValue.value.gender;
@@ -62,19 +63,20 @@ export class EmployeeDashboardComponent implements OnInit{
   getAllPatients(){
     this.api.getPatient()
     .subscribe(res=>{
+      console.log(res);
       this.employeeData=res;
     })
 }
 deletePatient(row: any){
-  this.api.deletePatient(row.id).subscribe(res=>{
+  this.api.deletePatient(row.patientId).subscribe(res=>{
     alert("Employee Deleted")
     this.getAllPatients();
   })
 }
 onEdit(row:any){
   this.showAdd = false;
-  this.showUpdate= false;
-  this.employeeModelObj.id = row.id;
+  this.showUpdate= true;
+  this.employeeModelObj.patientId = row.patientId;
 
   this.formValue.controls['name'].setValue(row.name)
   this.formValue.controls['dob'].setValue(row.dob)
@@ -96,7 +98,7 @@ updatePatientDetails(){
   this.employeeModelObj.phone = this.formValue.value.phone;
   this.employeeModelObj.language = this.formValue.value.language;
   this.employeeModelObj.medicalHistory = this.formValue.value.medicalHistory;
-  this.api.updatePatient(this.employeeModelObj,this.employeeModelObj.id)
+  this.api.updatePatient(this.employeeModelObj,this.employeeModelObj.patientId)
   .subscribe(res => {
     alert("Updated Successfully");
     let ref = document.getElementById('cancel')
