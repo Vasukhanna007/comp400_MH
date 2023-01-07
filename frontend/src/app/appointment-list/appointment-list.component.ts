@@ -14,7 +14,7 @@ export class AppointmentListComponent implements OnInit{
   public successMsg!: string;
   public appointmentsObj:AppointmentModel= new AppointmentModel();
   AppointmentData !: any;
-  public columns = ['appointmentDate', 'name', 'email', 'cancel'];
+  public columns = ['appointmentID', 'Patientname', 'doctorname','appointmentDate', 'cancel'];
 
 
   // employeeModelObj: EmployeeModel=new EmployeeModel();
@@ -27,6 +27,8 @@ export class AppointmentListComponent implements OnInit{
   ngOnInit(): void {
     this.api.getAppointment()
     .subscribe(res=>{
+      console.log(res);
+
       this.AppointmentData=res;
       this.loading=false;
     }
@@ -35,15 +37,17 @@ export class AppointmentListComponent implements OnInit{
     this.loading= false;
   })
   }
+
   getAllAppointments(){
     this.api.getAppointment()
     .subscribe(res=>{
+      console.log(res);
       this.AppointmentData=res;
     })
   }
 
   cancelAppointment(row: any){
-    this.api.deleteAppointment(row.id).subscribe(res=>{
+    this.api.deleteAppointment(row.appointmentId).subscribe(res=>{
       alert("Appointment Deleted");
       this.getAllAppointments();
     })

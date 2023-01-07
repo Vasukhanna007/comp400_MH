@@ -21,33 +21,36 @@ export class AppointmentComponent implements OnInit {
   ngOnInit(): void {
     this.formValue = this.formbuilder.group({
       date:[''],
-      name: [''],
-      email: [''],
+      patientName: [''],
+      doctorName: [''],
+      appointmentDate: ['']
+
     })
   }
+  createAppointment(){}  // createAppointment(){
+  //   this.successMsg = '';
+  //   this.errorMsg = '';
+  //   this.appointmentsObj.patientName = this.formValue.value.patientName;
+  //   this.appointmentsObj.doctorName = this.formValue.value.doctorName;
 
-  createAppointment(){
-    this.successMsg = '';
-    this.errorMsg = '';
-    this.appointmentsObj.name = this.formValue.value.name;
-    this.appointmentsObj.date = this.formValue.value.date;
+  //   // this.appointmentsObj.date = this.formValue.value.date;
 
-    this.appointmentsObj.email = this.formValue.value.email;
+  //   // this.appointmentsObj.email = this.formValue.value.email;
 
-    this.api.postAppointment(this.appointmentsObj)
-    .subscribe(res=>{
-      this.successMsg = `Appointment Booked Successfully for ${this.appointmentsObj.date}`;
-      let ref = document.getElementById('cancel')
-      ref?.click();
-      this.formValue.reset();
-      this.getAllAppointments();
-    },
-    err=>{
-      this.errorMsg = "something went wrong"
-    })
+  //   this.api.postAppointment(this.appointmentsObj)
+  //   .subscribe(res=>{
+  //     this.successMsg = `Appointment Booked Successfully for ${this.appointmentsObj.date}`;
+  //     let ref = document.getElementById('cancel')
+  //     ref?.click();
+  //     this.formValue.reset();
+  //     this.getAllAppointments();
+  //   },
+  //   err=>{
+  //     this.errorMsg = "something went wrong"
+  //   })
 
 
-  }
+  // }
   getAllAppointments(){
     this.api.getAppointment()
     .subscribe(res=>{

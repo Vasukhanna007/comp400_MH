@@ -34,21 +34,21 @@ export class ApiService {
   }
 
   postAppointment(data:any){
-    return this.http.post<any>("http://localhost:3000/appointment-list",data)
+    return this.http.post<any>("http://localhost:3001/appointment",data)
     .pipe(map((res:any)=>{
       return res;
     }))
   }
 
   getAppointment(){
-    return this.http.get<any>("http://localhost:3000/appointment-list")
+    return this.http.get<any>("http://localhost:3001/appointment")
     .pipe(map((res:any)=>{
       return res;
     }))
   }
 
   deleteAppointment(id: number){
-    return this.http.delete<any>("http://localhost:3000/appointment-list/"+id)
+    return this.http.delete<any>("http://localhost:3001/appointment/"+id)
     .pipe(map((res:any)=>{
       return res;
     }))
