@@ -22,6 +22,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { HomeComponent } from './home/home.component';
 import { AppointmentComponent } from './appointment/appointment.component';
 import { AppointmentListComponent } from './appointment-list/appointment-list.component';
+import { DoctorComponent } from './doctor/doctor.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { AppointmentListComponent } from './appointment-list/appointment-list.co
     SignupComponent,
     HomeComponent,
     AppointmentComponent,
-    AppointmentListComponent
+    AppointmentListComponent,
+    DoctorComponent
   ],
   imports: [
     BrowserModule,

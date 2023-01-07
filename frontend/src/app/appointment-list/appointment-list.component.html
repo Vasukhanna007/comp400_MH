@@ -15,8 +15,8 @@
     <tr>
     <th scope="col"> Appointment ID</th>
     <th scope="col">date</th>
-    <th scope="col">Name</th>
-    <th scope="col">Email</th>
+    <th scope="col">Doctor Name</th>
+    <th scope="col">Patient Name</th>
     <th scope="col">Action</th>
 
 
@@ -24,10 +24,11 @@
   </thead>
   <tbody>
     <tr *ngFor="let row of AppointmentData">
-      <td>{{row.id}}</td>
-      <td>{{row.date| date:'dd/MM/yyyy'}}</td>
-      <td>{{row.name}}</td>
-      <td>{{row.email}}</td>
+      <td>{{row.appointmentId}}</td>
+      <td>{{row.appointmentDate}}</td>
+      <td>{{row.DoctorName}}</td>
+      <td>{{row.PatientName}}</td>
+      
       <td>
         <button (click)="cancelAppointment(row)"class="btn btn-danger mx-3">Delete</button>
 
