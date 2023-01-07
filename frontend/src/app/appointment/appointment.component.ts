@@ -56,7 +56,7 @@ export class AppointmentComponent implements OnInit {
   }
 
   deleteAppointment(row: any){
-    this.api.deleteAppointment(row.id).subscribe(res=>{
+    this.api.deleteAppointment(row.appointmentId).subscribe(res=>{
       alert("Appointment Deleted")
       this.getAllAppointments();
     })

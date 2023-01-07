@@ -1,5 +1,6 @@
 var HospitalEmployee = require('./HospitalEmployee.js');
 
+
 class Doctor extends HospitalEmployee {
     constructor(name,dob,gender,email,phone,language,certifications,speciality,password){
         
