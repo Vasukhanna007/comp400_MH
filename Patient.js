@@ -2,11 +2,10 @@ var Person = require('./Person.js');
 
 class Patient extends Person {
 
-    constructor(patientId,name,dob,gender,email,phone,language,password, medicalHistory){
+    constructor(name,dob,gender,email,phone,language,password="default", medicalHistory){
         //'super' calls the parent constructor
         super(name,dob,gender,email,phone,language);
-        this.patientId = patientId;
-
+        this.patientId = phone;
         this.password=password;
         this.medicalHistory = medicalHistory;
 

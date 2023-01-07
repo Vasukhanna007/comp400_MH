@@ -4,6 +4,8 @@ const fs = require('fs');
 const { parse } = require('csv-parse');
 var Appointment = require('../../Appointment.js');
 path = require('path')
+let csvToJson = require('convert-csv-to-json');
+
 
 // const DATA_DIR= './db_data';
 let reqPath = path.join(__dirname,'..','..', 'db_data','appointment','appointments.csv');
