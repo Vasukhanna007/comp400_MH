@@ -54,6 +54,14 @@ export class ApiService {
     }))
   }
 
+  auth(data:any){
+    return this.http.post<any>("http://localhost:3001/auth",data)
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+
+  }
+
 
 
 }

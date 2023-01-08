@@ -21,15 +21,15 @@
 
   <form form [formGroup]="formValue">
     <mat-form-field>
-      <input formControlName="date" name="appointmentDate" matInput [matDatepicker]="picker" placeholder="Choose a date">
+      <input formControlName="appointmentDate" name="appointmentDate" matInput [matDatepicker]="picker" placeholder="Choose a date">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
     <mat-form-field>
-      <input formControlName="name" name="name" matInput placeholder="Name">
+      <input formControlName="patientName" name="patientName" matInput placeholder="Patient Name">
     </mat-form-field>
     <mat-form-field>
-      <input formControlName="email" name="email" matInput placeholder="Email" type="email">
+      <input formControlName="doctorName" name="doctorName" matInput placeholder="Doctor Name">
     </mat-form-field>
     <button (click)="createAppointment()" mat-raised-button color="primary">Make Appointment</button>
   </form>

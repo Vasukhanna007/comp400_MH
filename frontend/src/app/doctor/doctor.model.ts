@@ -8,6 +8,4 @@ export class DoctorModel{
   language: string = '';
   certifications: string='';
   speciality: string='';
-  password: string='';
-
 }
