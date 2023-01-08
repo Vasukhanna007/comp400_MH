@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     this.loginForm = this.formBuilder.group({
       email:[''],
       password:[''],
-      isDoctor:['']
+      isDoctor:false
     })
   }
 
@@ -29,10 +29,12 @@ export class LoginComponent implements OnInit {
     console.log(data.isDoctor)
     this.api.auth(data).subscribe(res=>{
       console.log("res",res);
+      //not working??
+
       if(res){
         alert("Login Success");
          this.loginForm.reset();
-         if(parseInt(data.isDoctor[0], 10) === 1){
+         if(data.isDoctor){
           this.router.navigate(['dashboard']);
         }
         else{
