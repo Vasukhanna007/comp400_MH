@@ -8,7 +8,6 @@
 
         </div>
         <form [formGroup]="loginForm" (ngSubmit)="login(loginForm)">
-          <form>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Email address</label>
               <input formControlName="email" type="email"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -18,12 +17,17 @@
               <label for="exampleInputPassword1" class="form-label">Password</label>
               <input formControlName="password" type="password"  class="form-control" id="exampleInputPassword1">
             </div>
-
+            <div class="form-check">
+              <label for="exampleCheck1">Is doctor</label>
+              <input formControlName="isDoctor" type="checkbox" id="exampleCheck1" name="exampleCheck1" value="1">
+  
+            </div>
+            
             <button type="submit" class="btn btn-primary">Login</button>
           </form>
           <a style="color:aliceblue"  routerLink="/signup">New User? Click to signup!!</a>
 
-        </form>
+      
 
       </div>
   </div>

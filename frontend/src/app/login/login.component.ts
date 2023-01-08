@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms'
 import { Router } from '@angular/router';
+import { ApiService } from '../shared/api.service';
+
 
 @Component({
   selector: 'app-login',
@@ -11,35 +13,64 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   public loginForm!: FormGroup;
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router){}
+  // public isDoctor: boolean=false;
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router,private api: ApiService){}
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       email:[''],
-      password:['']
+      password:[''],
+      isDoctor:['']
     })
   }
+
   login(loginForm: any){
-    // console.log("hello");
-    this.http.get<any>("http://localhost:3000/signupUsers")
-    .subscribe(res=>{
-      const user = res.find((a:any)=>{
-        // console.log("hello");
-        return a.email === loginForm.value.email && a.password === loginForm.value.password
-      });
-      if(user){
+    const data={"email":loginForm.value.email,"password":loginForm.value.password,"isDoctor": loginForm.value.isDoctor}
+    console.log(data.isDoctor)
+    this.api.auth(data).subscribe(res=>{
+      console.log("res",res);
+      if(res){
         alert("Login Success");
-        this.loginForm.reset();
-        this.router.navigate(['dashboard'])
+         this.loginForm.reset();
+         if(parseInt(data.isDoctor[0], 10) === 1){
+          this.router.navigate(['dashboard']);
+        }
+        else{
+          this.router.navigate(['home']);
+        }
+        
       }
       else{
-        alert("user not found");
-      }
-    },err=>{
-      alert("something went wrong")
+        console.log("wrong email or password");
+        this.loginForm.reset();
 
+      }
+    },
+    err=>{
+      console.log("error")
     })
+    // console.log("hello");
+    // this.http.get<any>("http://localhost:3000/signupUsers")
+    // .subscribe(res=>{
+    //   const user = res.find((a:any)=>{
+    //     // console.log("hello");
+    //     return a.email === loginForm.value.email && a.password === loginForm.value.password
+    //   });
+    //   if(user){
+    //     alert("Login Success");
+    //     this.loginForm.reset();
+    //     this.router.navigate(['dashboard'])
+    //   }
+    //   else{
+    //     alert("user not found");
+    //   }
+    // },err=>{
+    //   alert("something went wrong")
+
+    // })
 
   }
 
 }
+
+

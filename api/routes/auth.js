@@ -9,18 +9,20 @@ const DATA_DIR= './db_data';
 let patientPath = path.join(__dirname,'..','..', 'db_data','patient','patients.csv');
 let docPath = path.join(__dirname,'..','..', 'db_data','doctor','doctors.csv');
 
-console.log(patientPath)
+console.log('here',patientPath)
 
 
 router.post('/',(req,res,next) => {
    var auth = false;
-    if (req.body.isDoctor === 'true'){
+   console.log(req.body.isDoctor)
+
+    if (req.body.isDoctor){
         const destinationFile = docPath;
         var csvData=[];
         fs.createReadStream(destinationFile).pipe(parse({delimiter: ',',relax_quotes: true})).on('data', function(csvrow) {
         if (csvrow.includes(req.body.email) && (csvrow.includes(req.body.password) )){
-            console.log("Authenticated")
             auth=true
+            console.log("Authenticated")
         }
 
         //do something with csvrow
@@ -29,14 +31,15 @@ router.post('/',(req,res,next) => {
     .on('end',function() {
       //do something with csvData
     //   console.log(csvData);
+
       if(auth===false){
         console.log('failed')
     }
+    res.send(auth);
     });
     
         const data = fs.readFileSync(destinationFile);
         // console.log(typeof(data));
-        res.send(data);
 
     }
     else{
@@ -44,8 +47,9 @@ router.post('/',(req,res,next) => {
         var csvData=[];
         fs.createReadStream(destinationFile).pipe(parse({delimiter: ',',relax_quotes: true})).on('data', function(csvrow) {
         if (csvrow.includes(req.body.email) && (csvrow.includes(req.body.password) )){
-            console.log("Authenticated")
             auth=true
+
+            console.log("Authenticated")
         }
 
         //do something with csvrow
@@ -54,14 +58,17 @@ router.post('/',(req,res,next) => {
     .on('end',function() {
       //do something with csvData
     //   console.log(csvData);
+       
+
       if(auth===false){
         console.log('failed')
     }
+    res.send(auth);
     });
     
         const data = fs.readFileSync(destinationFile);
         // console.log(typeof(data));
-        res.send(data);
+     
 
     }
 

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: 'app-doctor',
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class DoctorComponent {
 
+
 }
+
+

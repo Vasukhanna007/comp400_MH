@@ -13,6 +13,9 @@ class Doctor extends HospitalEmployee {
     }
     //getPatients(), updatePatientRecord(), writePrescription(), cancelAppointment()
     
+    getId(){
+        return this.doctorId;
+    }
 
 
 }

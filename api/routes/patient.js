@@ -13,7 +13,8 @@ let reqPath = path.join(__dirname,'..','..', 'db_data','patient','patients.csv')
 console.log(reqPath)
 
 router.post('/',(req,res,next) => {
-    
+  console.log(typeof(req.body.name))
+
     var patient1= new Patient(req.body.name,req.body.dob, req.body.gender,req.body.email,req.body.phone,req.body.language,req.body.password, req.body.medicalHistory);
     const destinationFile = reqPath;
     let count  =  -1;

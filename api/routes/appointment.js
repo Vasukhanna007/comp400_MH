@@ -6,21 +6,77 @@ var Appointment = require('../../Appointment.js');
 path = require('path')
 let csvToJson = require('convert-csv-to-json');
 
-// var patient = require('./Patient.js');
-// var doctor = require('./Doctor.js');
-
+var Patient = require('./Patient.js');
+var Doctor = require('./Doctor.js');
 
 // const DATA_DIR= './db_data';
 let destinationFile = path.join(__dirname,'..','..', 'db_data','appointment','appointments.csv');
-console.log(destinationFile)
+let patientFile = path.join(__dirname,'..','..', 'db_data','patient','patients.csv');
+let doctorFile = path.join(__dirname,'..','..', 'db_data','doctor','doctors.csv');
+
+// const doctor = new Doctor('John Smith', '10/01/2000', 'M', 'john@example.com', '1234567890', ['English'], ['Mind'], 'Pediatrics', 'password123', ['ABC Hospital', 'XYZ Clinic']);
+// console.log(doctor.name); // Outputs 'John Smith'
+// console.log(doctor.speciality); // Outputs 'Pediatrics'
+// console.log(doctor.certifications); // Outputs ['ABC Hospital', 'XYZ Clinic']
+// console.log(destinationFile)
+// const patient = new Patient(
+//     "suv",
+//     "10/01/2000",
+//     "M",
+//     "vasu@mail.com",
+//     "15",
+//     "['English']",
+//     "fass",
+//     "['anxiety']"
+//   );
+
+function findByName(name,file) {
+    // Read the CSV file
+    const data = fs.readFileSync(file, 'utf8');
+  
+    // Split the file into an array of rows
+    const rows = data.split('\n');
+    // console.log(rows)
+    // Iterate through each row
+    for (const row of rows) {
+        // Split the row into an array of cells
+        const cells = row.split(',');
+    
+        // If the first cell (name column) matches the search term, return the row
+        if (cells[0] === name) {
+          return cells;
+        }
+      }
+  }
+  
+//   const result = findByName('John');
+//   console.log(result);
+  
 
 router.post('/',(req,res,next) => {
+// const doctor = new Doctor('John Smith', '10/01/2000', 'M', 'john@example.com', '1234567890', ['English'], ['Mind'], 'Pediatrics', 'password123', ['ABC Hospital', 'XYZ Clinic']);
 
-    const { patient, doctor, appointmentDate } = req.body;
-    const appointment = new Appointment(patient, doctor, appointmentDate);
-    console.log(appointment.toCsvString())
-    appointment_str=appointment.toCsvString()
-    appointment.save(destinationFile,appointment_str)
+// console.log(doctor.name); // Outputs 'John Smith'
+// console.log(doctor.speciality); // Outputs 'Pediatrics'
+// console.log(doctor.certifications); // Outputs ['ABC Hospital', 'XYZ Clinic']
+    
+    // const { appointmentId,patientName, doctorName, appointmentDate } = req.body
+    // // console.log(patientName);
+    // // console.log(doctorName);
+    // const cells = findByName(doctorName,doctorFile);
+    // console.log(cells[0], cells[1], cells[2], cells[3], cells[4], cells[5], cells[8], cells[9]);
+    // // const doctor = new Doctor(cells[0], cells[1], cells[2], cells[3], cells[4], cells[5], cells[8], cells[9]);// console.log(doctor.getId())
+
+    // const patientrow = findByName(doctorName,patientFile);
+
+    
+    // console.log(co)
+    // console.log(result);
+    // const { patient, doctor, appointmentDate } = req.body;
+    // const appointment = new Appointment(patient, doctor, appointmentDate);
+    // console.log(appointment.toCsvString())
+    // appointment_str=appointment.toCsvString()
+    // appointment.save(destinationFile,appointment_str)
 
     res.send();
 
@@ -54,7 +110,7 @@ function findByIdAndDelete(id, csvFilePath) {
 
     // Remove the line with the matching ID
     const modifiedLines = lines.filter(line => {
-        
+
         // Split the line into fields
         const fields = line.split(',');
     
