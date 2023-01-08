@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const fs = require('fs');
-const parse = require('csv-parse');
+const parse = require('csv-parse').parse;
 var Appointment = require('../../Appointment.js');
 path = require('path')
 let csvToJson = require('convert-csv-to-json');
@@ -109,6 +109,85 @@ router.get('/',(req,res,next) => {
     }
 });
 
+
+router.get('/:doctorName', (req, res) => {
+    // Read the doctor name from the query parameters
+    appointments=[];
+    const doctorName = req.params.doctorName;
+  
+    // Read the appointments CSV file
+    fs.createReadStream(destinationFile)
+      .pipe(parse({ delimiter: ',', relax_quotes: true }))
+      .on('data', row => {
+        // Check if the doctor name in the row matches the given doctor name
+        if (row[2] === doctorName) {
+          // If it matches, add the appointment to the appointments array
+          appointments.push({
+            id: row[0],
+            patient: row[1],
+            doctor: row[2],
+            date:row[3]
+          });
+        }
+      })
+      .on('end', () => {
+        // Send the appointments array as the response
+        res.send(appointments);
+      });
+  });
+
+  router.get('/:patientName', (req, res) => {
+    // Read the doctor name from the query parameters
+    appointments=[];
+    const patientName = req.params.patientName;
+  
+    // Read the appointments CSV file
+    fs.createReadStream(destinationFile)
+      .pipe(parse({ delimiter: ',', relax_quotes: true }))
+      .on('data', row => {
+        // Check if the doctor name in the row matches the given doctor name
+        if (row[1] === patientName) {
+          // If it matches, add the appointment to the appointments array
+          appointments.push({
+            id: row[0],
+            patient: row[1],
+            doctor: row[2],
+            date:row[3]
+          });
+        }
+      })
+      .on('end', () => {
+        // Send the appointments array as the response
+        res.send(appointments);
+      });
+  });
+
+router.post('/:name', (req, res) => {
+    // Read the doctor name from the request body
+    const doctorName = req.body.doctorName;
+  
+    // Read the appointments CSV file
+    fs.createReadStream(appointmentsPath)
+      .pipe(parse({ delimiter: ',', relax_quotes: true }))
+      .on('data', row => {
+        // Check if the doctor name in the row matches the given doctor name
+        if (row[1] === doctorName) {
+          // If it matches, add the appointment to the appointments array
+          appointments.push({
+            date: row[0],
+            doctor: row[1],
+            patient: row[2]
+          });
+        }
+      })
+      .on('end', () => {
+        // Send the appointments array as the response
+        res.send(appointments);
+      });
+  });
+
+
+
 function findByIdAndDelete(id, csvFilePath) {
     console.log(id)
     // Read the CSV file into memory
@@ -139,7 +218,6 @@ router.delete('/:id', (req, res) => {
     // Find the appointment in the database and delete it
     findByIdAndDelete(appointmentId,destinationFile)
     res.send();
-
 });
 
 module.exports = router;

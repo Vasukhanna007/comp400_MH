@@ -46,6 +46,14 @@ export class AppointmentListComponent implements OnInit{
     })
   }
 
+  getAllAppointmentsByDoctorName(row:any){
+    this.api.getAppointmentsbydoctor(row.doctorName)
+    .subscribe(res=>{
+      console.log(res);
+      this.AppointmentData=res;
+    })
+  }
+
   cancelAppointment(row: any){
     this.api.deleteAppointment(row.appointmentId).subscribe(res=>{
       alert("Appointment Deleted");

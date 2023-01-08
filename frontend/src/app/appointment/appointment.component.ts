@@ -93,6 +93,12 @@ export class AppointmentComponent implements OnInit {
       this.AppointmentData=res;
     })
   }
+  // getAllAppointmentsByDoctorName(row:any){
+  //   this.api.getAppointmentsbydoctor(row.doctorName)
+  //   .subscribe(res=>{
+  //     this.AppointmentData=res;
+  //   })
+  // }
 
   deleteAppointment(row: any){
     this.api.deleteAppointment(row.appointmentId).subscribe(res=>{

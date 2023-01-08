@@ -1,6 +1,8 @@
 var patient = require('./Patient.js');
 var doctor = require('./Doctor.js');
 const fs = require('fs');
+let reqPath = path.join(__dirname, 'db_data','appointment','appointments.csv');
+const parse = require('csv-parse').parse;
 
 
 class Appointment{
@@ -32,6 +34,20 @@ class Appointment{
         fs.appendFileSync(destinationFile,appointment_str);
         fs.appendFileSync(destinationFile,'\n');
     }
+
+    // static async findAppointmentsbyDoctorName(name) {
+    //     return new Promise((resolve, reject) => {
+    //             const records = [];
+    //             fs.createReadStream(reqPath)
+    //               .pipe(parse({ delimiter: ',', relax_quotes: true }))
+    //               .on('data', record => records.push(record))
+    //               .on('end', () => {
+    //                 const foundRecords = records.filter(r => r.DoctorName === name);
+    //                 resolve(foundRecords || null);
+    //               })
+    //               .on('error', reject);
+    //           });
+    // }
 
 
 }

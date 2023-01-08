@@ -47,6 +47,13 @@ export class ApiService {
     }))
   }
 
+  getAppointmentsbydoctor(doctorName:any){
+    return this.http.get<any>("http://localhost:3001/appointment/"+doctorName)
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+
   deleteAppointment(id: number){
     return this.http.delete<any>("http://localhost:3001/appointment/"+id)
     .pipe(map((res:any)=>{
