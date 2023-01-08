@@ -11,11 +11,13 @@ let csvToJson = require('convert-csv-to-json');
 let reqPath = path.join(__dirname,'..','..', 'db_data','doctor','doctors.csv');
 // console.log(reqPath)
 
+// const doctor = new Doctor('John Smith', '10/01/2000', 'M', 'john@example.com', '1234567890', ['English'], ['Mind'], 'Pediatrics', 'password123', ['ABC Hospital', 'XYZ Clinic']);
 
 
 router.post('/',(req,res,next) => {
-    
-    var doctor1= new Doctor(req.body.name,req.body.dob, req.body.gender,req.body.email,req.body.phone,req.body.language,req.body.certifications,req.body.speciality, req.body.password);
+    // const doctor2 = new Doctor('John Smith', '10/01/2000', 'M', 'john@example.com', '1234567890', ['English'], ['Mind'], 'Pediatrics', 'password123', ['ABC Hospital', 'XYZ Clinic']);
+    console.log('type of ',typeof(req.body.name))
+    const doctor1= new Doctor(req.body.name,req.body.dob, req.body.gender,req.body.email,req.body.phone,req.body.language,req.body.certifications,req.body.speciality, req.body.password);
     // var patient1= new Patient("vasu","20", "[anxiety, ADHD]");
 
     console.log(doctor1)
