@@ -4,32 +4,37 @@ const fs = require('fs');
 // const { parse } = require('csv-parse');
 const { parse } = require('json2csv');
 
-var Patient = require('../../Patient.js');
+var Patient = require('../../model/Patient.js');
 path = require('path')
 let csvToJson = require('convert-csv-to-json');
 
 const DATA_DIR= './db_data';
 let reqPath = path.join(__dirname,'..','..', 'db_data','patient','patients.csv');
-console.log(reqPath)
+console.log("routesp",reqPath)
 
 router.post('/',(req,res,next) => {
   console.log(typeof(req.body.name))
 
     var patient1= new Patient(req.body.name,req.body.dob, req.body.gender,req.body.email,req.body.phone,req.body.language,req.body.password, req.body.medicalHistory);
     const destinationFile = reqPath;
-    let count  =  -1;
-     console.log(Object.keys(req.body).length)
-     arr = console.log(Object.values(patient1))
-     for (const [key, value] of Object.entries(patient1)) {
-        count+=1
-        fs.appendFileSync(destinationFile,JSON.stringify(value).replace(/^"|"$/g, ''));
-        if(count===Object.keys(req.body).length){
-            fs.appendFileSync(destinationFile,"\n");
-            break;
-        }
-        fs.appendFileSync(destinationFile,',')
 
-      }
+    // let count  =  -1;
+    //  console.log(Object.keys(req.body).length)
+    //  arr = console.log(Object.values(patient1))
+    //  for (const [key, value] of Object.entries(patient1)) {
+    //     count+=1
+    //     fs.appendFileSync(destinationFile,JSON.stringify(value).replace(/^"|"$/g, ''));
+    //     if(count===Object.keys(req.body).length){
+    //         fs.appendFileSync(destinationFile,"\n");
+    //         break;
+    //     }
+    //     fs.appendFileSync(destinationFile,',')
+
+    //   }
+    console.log('printing what goes inside pat',patient1.toCsvString())
+     patient_str=patient1.toCsvString()
+     patient1.save(destinationFile,patient_str)
+
     res.send();
 });
 
