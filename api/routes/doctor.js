@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const fs = require('fs');
 const { parse } = require('csv-parse');
-var Doctor = require('../../Doctor.js');
+var Doctor = require('../../model/Doctor.js');
 path = require('path')
 let csvToJson = require('convert-csv-to-json');
 

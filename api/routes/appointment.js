@@ -2,12 +2,12 @@ const express = require('express');
 const router = express.Router();
 const fs = require('fs');
 const parse = require('csv-parse').parse;
-var Appointment = require('../../Appointment.js');
+var Appointment = require('../../model/Appointment.js');
 path = require('path')
 let csvToJson = require('convert-csv-to-json');
 
-var Patient = require('../../Patient');
-var Doctor = require('../../Doctor.js');
+var Patient = require('../../model/Patient');
+var Doctor = require('../../model/Doctor.js');
 
 // const DATA_DIR= './db_data';
 let destinationFile = path.join(__dirname,'..','..', 'db_data','appointment','appointments.csv');
@@ -60,11 +60,17 @@ router.post('/',async(req,res) => {
 // console.log(doctor.certifications); // Outputs ['ABC Hospital', 'XYZ Clinic']
     
     const { appointmentId,patientName, doctorName, appointmentDate } = req.body
-    const patient =  await Patient.findByName(patientName);
+    console.log(patientName, doctorName, appointmentDate);
+    
     const doctor = await Doctor.findByName(doctorName);
-    const date = new Date(appointmentDate)
+    console.log(doctor)
 
-    const appointment = new Appointment(doctor, patient, date);
+    const patient =  await Patient.findByName(patientName);
+    console.log(patient)
+
+    const date = appointmentDate;
+
+    const appointment = new Appointment( patient,doctor, date);
 
     console.log(patient)
     console.log(doctor)
@@ -84,7 +90,7 @@ router.post('/',async(req,res) => {
     // console.log(result);
     // const { patient, doctor, appointmentDate } = req.body;
     // const appointment = new Appointment(patient, doctor, appointmentDate);
-     console.log(appointment.toCsvString())
+     console.log('printing what goes inside apt',appointment.toCsvString())
      appointment_str=appointment.toCsvString()
      appointment.save(destinationFile,appointment_str)
 

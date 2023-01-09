@@ -1,7 +1,7 @@
 var patient = require('./Patient.js');
 var doctor = require('./Doctor.js');
 const fs = require('fs');
-let reqPath = path.join(__dirname, 'db_data','appointment','appointments.csv');
+let reqPath = path.join(__dirname,'..' ,'db_data','appointment','appointments.csv');
 const parse = require('csv-parse').parse;
 
 

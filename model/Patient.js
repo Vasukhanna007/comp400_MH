@@ -2,7 +2,7 @@ var Person = require('./Person.js');
 path = require('path')
 const fs = require('fs');
 const csvParse = require('csv-parse').parse;
-let reqPath = path.join(__dirname, 'db_data','patient','patients.csv');
+let reqPath = path.join(__dirname,'..' ,'db_data','patient','patients.csv');
 console.log("Patient js ",reqPath)
 
 
@@ -17,6 +17,17 @@ class Patient extends Person {
 
     }
 
+
+    toCsvString() {
+        
+      return `${this.name},${this.dob},${this.gender},${this.email},${this.phone},${this.language},${this.patientId},${this.password},${this.medicalHistory}`;
+      }
+
+      save(destinationFile,patient_str){
+        fs.appendFileSync(destinationFile,patient_str);
+        fs.appendFileSync(destinationFile,'\n');
+    }
+
     //bookAppointment() , cancelAppointment, registerPatient()
 
     static async findByName(name) {
@@ -25,11 +36,14 @@ class Patient extends Person {
           fs.createReadStream(reqPath)
             .pipe(csvParse({ delimiter: ',', relax_quotes: true }))
             .on('data', row => {
+
               patients.push(new Patient(row[0], row[1], row[2],row[3],row[4],row[5],row[7],row[8]));
             })
             .on('end', () => {
+              console.log(patients)
               // Find the patient with the specified name
               const patient = patients.find(p => p.name === name);
+              console.log("here",patient)
               if (patient) {
                 resolve(patient);
               } else {

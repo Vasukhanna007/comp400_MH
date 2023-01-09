@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const fs = require('fs');
 const { parse } = require('csv-parse');
-var Patient = require('../../Patient.js');
+var Patient = require('../../model/Patient.js');
 path = require('path')
 
 const DATA_DIR= './db_data';

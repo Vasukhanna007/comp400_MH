@@ -1,7 +1,7 @@
 var HospitalEmployee = require('./HospitalEmployee.js');
 const fs = require('fs');
 const csvParse= require('csv-parse').parse;
-let reqPath = path.join(__dirname, 'db_data','doctor','doctors.csv');
+let reqPath = path.join(__dirname,'..', 'db_data','doctor','doctors.csv');
 
 class Doctor extends HospitalEmployee {
     constructor(name,dob,gender,email,phone,language,certifications,speciality,password="default"){
