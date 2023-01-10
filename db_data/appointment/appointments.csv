@@ -1,9 +1,9 @@
-appointmentId, PatientName, DoctorName, appointmentDate
-f9c3,suv,arth,31/12/2022
-abc4,suv,arth,31/12/2022
-ec43,suv,arth,31/12/2022
-fdbd,arth,suv,Thu Jan 05 2023 00:00:00 GMT-0500 (Eastern Standard Time)
-
-
-
-452e,suv,Parth,31/12/2022
+appointmentId, doctorID, PatientID, PatientEmail, DoctorName, appointmentDate
+4320,541003941Parth,15149920378,vasu.khanna@mail.mcgill.ca,Parth,2023-01-16
+c4ec,541003941Parth,15149920378,vasu.khanna@mail.mcgill.ca,Parth,2023-01-04
+5fc9,541003941Parth,15149920378,vasu.khanna@mail.mcgill.ca,Parth,2023-01-11
+7d8c,541003941Parth,15149920378,vasu.khanna@mail.mcgill.ca,Parth,2023-01-11
+8f01,541003941Parth,15149920378,vasu.khanna@mail.mcgill.ca,Parth,2023-01-04
+4e3a,541003941Parth,15149920378,vasu.khanna@mail.mcgill.ca,Parth,2023-01-16
+b52e,541003941Parth,15149920378,vasu.khanna@mail.mcgill.ca,Parth,2023-01-24
+a6e2,541003941Parth,15149920378,vasu.khanna@mail.mcgill.ca,Parth,2023-01-18

@@ -19,6 +19,10 @@ export class ApiService {
     return this.http.get<any>("http://localhost:3001/patient");
   }
 
+  getDoctor(){
+    return this.http.get<any>("http://localhost:3001/doctor");
+  }
+
   updatePatient(data:any, id:number){
     return this.http.put<any>("http://localhost:3001/patient/"+id,data)
     .pipe(map((res:any)=>{

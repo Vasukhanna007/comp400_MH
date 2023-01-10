@@ -7,7 +7,8 @@ export class AppointmentModel{
     // patient: EmployeeModel=new EmployeeModel();
     // doctorId: number=0;
     // doctors!: DoctorModel;
-    patientName: string = '';
+    patientEmail: string = '';
     doctorName: string = '';
     appointmentDate: string="";
+    appointmentTime: string="";
   }
