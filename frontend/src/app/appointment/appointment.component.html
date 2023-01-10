@@ -20,13 +20,18 @@
 <div class="form-container">
 
   <form form [formGroup]="formValue">
+
     <mat-form-field>
       <input formControlName="appointmentDate" name="appointmentDate" matInput [matDatepicker]="picker" placeholder="Choose a date">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
     <mat-form-field>
-      <input formControlName="patientName" name="patientName" matInput placeholder="Patient Name">
+      <mat-label>Select time</mat-label>
+      <input matInput formControlName="appointmentTime" type="time" step="1800">
+    </mat-form-field>
+    <mat-form-field>
+      <input formControlName="patientEmail" name="patientEmail" matInput placeholder="Patient Email">
     </mat-form-field>
     <mat-form-field>
       <input formControlName="doctorName" name="doctorName" matInput placeholder="Doctor Name">

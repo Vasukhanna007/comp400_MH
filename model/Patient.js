@@ -30,7 +30,7 @@ class Patient extends Person {
 
     //bookAppointment() , cancelAppointment, registerPatient()
 
-    static async findByName(name) {
+    static async findByEmail(email) {
         return new Promise((resolve, reject) => {
           const patients = [];
           fs.createReadStream(reqPath)
@@ -42,7 +42,7 @@ class Patient extends Person {
             .on('end', () => {
               console.log(patients)
               // Find the patient with the specified name
-              const patient = patients.find(p => p.name === name);
+              const patient = patients.find(p => p.email === email);
               console.log("here",patient)
               if (patient) {
                 resolve(patient);

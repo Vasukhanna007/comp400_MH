@@ -59,13 +59,13 @@ router.post('/',async(req,res) => {
 // console.log(doctor.speciality); // Outputs 'Pediatrics'
 // console.log(doctor.certifications); // Outputs ['ABC Hospital', 'XYZ Clinic']
     
-    const { appointmentId,patientName, doctorName, appointmentDate } = req.body
-    console.log(patientName, doctorName, appointmentDate);
+    const { appointmentId,patientEmail, doctorName, appointmentDate } = req.body
+    console.log(patientEmail, doctorName, appointmentDate);
     
     const doctor = await Doctor.findByName(doctorName);
     console.log(doctor)
 
-    const patient =  await Patient.findByName(patientName);
+    const patient =  await Patient.findByEmail(patientEmail);
     console.log(patient)
 
     const date = appointmentDate;
@@ -116,56 +116,60 @@ router.get('/',(req,res,next) => {
 });
 
 
-router.get('/:doctorName', (req, res) => {
+router.get('/:doctorName', async(req, res) => {
     // Read the doctor name from the query parameters
     appointments=[];
     const doctorName = req.params.doctorName;
-  
+    appointment=await Appointment.getAppointmentsByDoctorName(doctorName);
+    res.send(appointment);
+
     // Read the appointments CSV file
-    fs.createReadStream(destinationFile)
-      .pipe(parse({ delimiter: ',', relax_quotes: true }))
-      .on('data', row => {
-        // Check if the doctor name in the row matches the given doctor name
-        if (row[2] === doctorName) {
-          // If it matches, add the appointment to the appointments array
-          appointments.push({
-            id: row[0],
-            patient: row[1],
-            doctor: row[2],
-            date:row[3]
-          });
-        }
-      })
-      .on('end', () => {
-        // Send the appointments array as the response
-        res.send(appointments);
-      });
+    // fs.createReadStream(destinationFile)
+    //   .pipe(parse({ delimiter: ',', relax_quotes: true }))
+    //   .on('data', row => {
+    //     // Check if the doctor name in the row matches the given doctor name
+    //     if (row[2] === doctorName) {
+    //       // If it matches, add the appointment to the appointments array
+    //       appointments.push({
+    //         id: row[0],
+    //         patient: row[1],
+    //         doctor: row[2],
+    //         date:row[3]
+    //       });
+    //     }
+    //   })
+    //   .on('end', () => {
+    //     // Send the appointments array as the response
+    //     res.send(appointments);
+    //   });
   });
 
-  router.get('/:patientName', (req, res) => {
+  router.get('/findByPatientName/:patientEmail', async(req, res) => {
     // Read the doctor name from the query parameters
     appointments=[];
-    const patientName = req.params.patientName;
+    const patientEmail = req.params.patientEmail;
+    appointment=await Appointment.getAppointmentsByPatientEmail(patientEmail);
+    res.send(appointment);
   
-    // Read the appointments CSV file
-    fs.createReadStream(destinationFile)
-      .pipe(parse({ delimiter: ',', relax_quotes: true }))
-      .on('data', row => {
-        // Check if the doctor name in the row matches the given doctor name
-        if (row[1] === patientName) {
-          // If it matches, add the appointment to the appointments array
-          appointments.push({
-            id: row[0],
-            patient: row[1],
-            doctor: row[2],
-            date:row[3]
-          });
-        }
-      })
-      .on('end', () => {
-        // Send the appointments array as the response
-        res.send(appointments);
-      });
+    // // Read the appointments CSV file
+    // fs.createReadStream(destinationFile)
+    //   .pipe(parse({ delimiter: ',', relax_quotes: true }))
+    //   .on('data', row => {
+    //     // Check if the doctor name in the row matches the given doctor name
+    //     if (row[1] === patientName) {
+    //       // If it matches, add the appointment to the appointments array
+    //       appointments.push({
+    //         id: row[0],
+    //         patient: row[1],
+    //         doctor: row[2],
+    //         date:row[3]
+    //       });
+    //     }
+    //   })
+    //   .on('end', () => {
+    //     // Send the appointments array as the response
+    //     res.send(appointments);
+    //   });
   });
 
 router.post('/:name', (req, res) => {

@@ -11,7 +11,6 @@ class Doctor extends HospitalEmployee {
         this.doctorId = phone+name;
         this.speciality = speciality;
         this.password =  password;
-
     }
     //getPatients(), updatePatientRecord(), writePrescription(), cancelAppointment()
     

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../shared/api.service';
 import { AppointmentModel } from './appointment.model';
 import {FormBuilder, FormGroup} from '@angular/forms'
+import { MatFormFieldControl } from '@angular/material/form-field';
+
 // import { Papa } from "ngx-papaparse";
 
 import { HttpClient } from "@angular/common/http";
@@ -38,17 +40,19 @@ export class AppointmentComponent implements OnInit {
     // );
     this.formValue = this.formbuilder.group({
       // date:[''],
-      patientName: [''],
+      patientEmail: [''],
       doctorName: [''],
-      appointmentDate: ['']
+      appointmentDate: [''],
+      appointmentTime:['']
 
     })
   }
   createAppointment(){
-    this.appointmentsObj.patientName = this.formValue.value.patientName;
+    this.appointmentsObj.patientEmail = this.formValue.value.patientEmail;
      this.appointmentsObj.doctorName = this.formValue.value.doctorName;
      this.appointmentsObj.appointmentDate = this.formValue.value.appointmentDate;
-
+     this.appointmentsObj.appointmentTime = this.formValue.value.appointmentTime;
+    console.log(this.appointmentsObj)
      this.api.postAppointment(this.appointmentsObj)
     .subscribe(res=>{
       console.log(res);
