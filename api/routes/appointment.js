@@ -59,8 +59,8 @@ router.post('/',async(req,res) => {
 // console.log(doctor.speciality); // Outputs 'Pediatrics'
 // console.log(doctor.certifications); // Outputs ['ABC Hospital', 'XYZ Clinic']
     
-    const { appointmentId,patientEmail, doctorName, appointmentDate } = req.body
-    console.log(patientEmail, doctorName, appointmentDate);
+    const { appointmentId,patientEmail, doctorName, appointmentDate,appointmentTime } = req.body
+    console.log(patientEmail, doctorName, appointmentDate,appointmentTime);
     
     const doctor = await Doctor.findByName(doctorName);
     console.log(doctor)

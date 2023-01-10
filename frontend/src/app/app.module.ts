@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 
 import { BrowserModule } from '@angular/platform-browser';
+import { MatSelectModule } from '@angular/material/select';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,8 +17,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatTableModule} from '@angular/material/table';
-import {MatNativeDateModule} from '@angular/material/core';
+import {MatNativeDateModule, MatOptionModule} from '@angular/material/core';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatOption } from '@angular/material/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { HomeComponent } from './home/home.component';
 import { AppointmentComponent } from './appointment/appointment.component';
@@ -34,7 +36,7 @@ import { DoctorComponent } from './doctor/doctor.component';
     HomeComponent,
     AppointmentComponent,
     AppointmentListComponent,
-    DoctorComponent
+    DoctorComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +51,9 @@ import { DoctorComponent } from './doctor/doctor.component';
         MatDatepickerModule,
         MatNativeDateModule,
         MatToolbarModule,
-        MatProgressSpinnerModule
+        MatProgressSpinnerModule,
+        // MatOption,
+        MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

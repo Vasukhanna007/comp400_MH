@@ -7,6 +7,7 @@ import { MatFormFieldControl } from '@angular/material/form-field';
 // import { Papa } from "ngx-papaparse";
 
 import { HttpClient } from "@angular/common/http";
+import { catchError, from, Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-appointment',
@@ -19,10 +20,12 @@ export class AppointmentComponent implements OnInit {
   public appointmentsObj:AppointmentModel= new AppointmentModel();
   AppointmentData !: any;
   formValue !: FormGroup;
-  allDoctor!: any[]; // parsed CSV data
+  // allDoctor!: any[]; // parsed CSV data
   selectedDoctor: any; // selected doctor from the dropdown
+  allDoctors$!: Observable<any>;
 
-
+//const array of timeslots
+timeSlot: string[] = ["8:00","9:00","10:00","11:00","12:00","1:00","2:00","3:00","4:00"];
 
   constructor(private api: ApiService,private formbuilder: FormBuilder, private http: HttpClient){}
 
@@ -34,19 +37,38 @@ export class AppointmentComponent implements OnInit {
     //       header: true,
     //       complete: (result) => {
     //         // this.doctors = result.data;
+    // this.allDoctors$ = this.api.getDoctor();
+    console.log(this.timeSlot);
+    this.allDoctors$ = this.api.getDoctor().pipe(
+      catchError(err => of([]))
+
+  );
+    // console.log(allDoctor$)
+
     //       },
     //     });
     //   }
+
     // );
     this.formValue = this.formbuilder.group({
       // date:[''],
       patientEmail: [''],
       doctorName: [''],
       appointmentDate: [''],
-      appointmentTime:['']
+      appointmentTime:[''],
+      selectedValue:[''],
+      slotValue:[]
 
     })
   }
+  // getAllDoctors(){
+  //   this.api.getDoctor()
+  //   .subscribe(res=>{
+  //     console.log("here",res);
+  //     this.allDoctors=res;
+  //   })
+  // }
+
   createAppointment(){
     this.appointmentsObj.patientEmail = this.formValue.value.patientEmail;
      this.appointmentsObj.doctorName = this.formValue.value.doctorName;

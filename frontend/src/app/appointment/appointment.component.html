@@ -17,7 +17,13 @@
   </div>
 </nav>
 
-<div class="form-container">
+
+ <div class="form-container">
+  <!-- <div *ngIf="allDoctors$ | async as allDoctors">
+    <div *ngFor="let doctor of allDoctors">
+      {{ doctor.name }}
+    </div>
+  </div> --> -->
 
   <form form [formGroup]="formValue">
 
@@ -29,6 +35,30 @@
     <mat-form-field>
       <mat-label>Select time</mat-label>
       <input matInput formControlName="appointmentTime" type="time" step="1800">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Doctor Name</mat-label>
+      <mat-select formControlName="selectedValue" name="doctor">
+        <div *ngIf="allDoctors$ | async as allDoctors">
+          <mat-option *ngFor="let doctor of allDoctors" [value]="doctor.name">
+              {{ doctor.name }}
+          </mat-option>
+        </div>
+
+      </mat-select>
+    </mat-form-field>
+
+
+
+
+    <mat-form-field appearance="fill">
+      <mat-label>Timeslot</mat-label>
+      <mat-select formControlName="slotValue" name="slotValue">
+        <mat-option *ngFor="let slot of timeSlot" [value]="slot">
+          {{slot}}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
     <mat-form-field>
       <input formControlName="patientEmail" name="patientEmail" matInput placeholder="Patient Email">
