@@ -35,12 +35,18 @@ export class LoginComponent implements OnInit {
         alert("Login Success");
          this.loginForm.reset();
          if(data.isDoctor){
-          this.router.navigate(['dashboard']);
+          console.log(data.email);
+
+            this.api.email = data.email;
+
+          this.router.navigate(['appointment-list']);
         }
         else{
-          this.router.navigate(['home']);
+          this.api.email = data.email;
+
+          this.router.navigate(['appointment-list']);
         }
-        
+
       }
       else{
         console.log("wrong email or password");

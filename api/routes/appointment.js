@@ -8,6 +8,7 @@ let csvToJson = require('convert-csv-to-json');
 
 var Patient = require('../../model/Patient');
 var Doctor = require('../../model/Doctor.js');
+const { Console } = require('console');
 
 // const DATA_DIR= './db_data';
 let destinationFile = path.join(__dirname,'..','..', 'db_data','appointment','appointments.csv');
@@ -58,41 +59,33 @@ router.post('/',async(req,res) => {
     // console.log(doctor.name); // Outputs 'John Smith'
 // console.log(doctor.speciality); // Outputs 'Pediatrics'
 // console.log(doctor.certifications); // Outputs ['ABC Hospital', 'XYZ Clinic']
-    
+    console.log(req.body);
     const { appointmentId,patientEmail, doctorName, appointmentDate,appointmentTime } = req.body
     console.log(patientEmail, doctorName, appointmentDate,appointmentTime);
-    
+    if(doctorName && patientEmail && appointmentDate && appointmentTime){
     const doctor = await Doctor.findByName(doctorName);
-    console.log(doctor)
+    console.log("this is the doctor id",doctor.doctorId)
 
     const patient =  await Patient.findByEmail(patientEmail);
-    console.log(patient)
+    // console.log(patient)
 
     const date = appointmentDate;
+    const isAvailable = await Appointment.checkAvailability(doctor.doctorId,Appointment.formatDate(appointmentDate),appointmentTime);
+    console.log(isAvailable)
+    if(isAvailable){
+      const appointment = new Appointment( patient,doctor, date,appointmentTime);
+      console.log('printing what goes inside apt',appointment.toCsvString())
+      appointment_str=appointment.toCsvString()
+      appointment.save(destinationFile,appointment_str)
 
-    const appointment = new Appointment( patient,doctor, date);
 
-    console.log(patient)
-    console.log(doctor)
-
-    // console.log(patientName);
-    // console.log(doctorName);
-    // const cells = findByName(doctorName,doctorFile);
-    // console.log(typeof(cells));
-    // console.log(cells[0]);
-
-    // const doctor = new Doctor(cells[0], cells[1], cells[2], cells[3], cells[4], cells[5], cells[8], cells[9]);// console.log(doctor.getId())
-
-    // const patientrow = findByName(doctorName,patientFile);
-
+    }
+  }
+    else{
+      console.log("sorry no availability")
+    }
     
-    // console.log(co)
-    // console.log(result);
-    // const { patient, doctor, appointmentDate } = req.body;
-    // const appointment = new Appointment(patient, doctor, appointmentDate);
-     console.log('printing what goes inside apt',appointment.toCsvString())
-     appointment_str=appointment.toCsvString()
-     appointment.save(destinationFile,appointment_str)
+
 
     res.send();
 
@@ -116,35 +109,17 @@ router.get('/',(req,res,next) => {
 });
 
 
-router.get('/:doctorName', async(req, res) => {
+router.get('/:doctorEmail', async(req, res) => {
     // Read the doctor name from the query parameters
     appointments=[];
-    const doctorName = req.params.doctorName;
-    appointment=await Appointment.getAppointmentsByDoctorName(doctorName);
+    const doctorEmail = req.params.doctorEmail;
+    appointment=await Appointment.getAppointmentsByDoctorEmail(doctorEmail);
     res.send(appointment);
 
-    // Read the appointments CSV file
-    // fs.createReadStream(destinationFile)
-    //   .pipe(parse({ delimiter: ',', relax_quotes: true }))
-    //   .on('data', row => {
-    //     // Check if the doctor name in the row matches the given doctor name
-    //     if (row[2] === doctorName) {
-    //       // If it matches, add the appointment to the appointments array
-    //       appointments.push({
-    //         id: row[0],
-    //         patient: row[1],
-    //         doctor: row[2],
-    //         date:row[3]
-    //       });
-    //     }
-    //   })
-    //   .on('end', () => {
-    //     // Send the appointments array as the response
-    //     res.send(appointments);
-    //   });
+
   });
 
-  router.get('/findByPatientName/:patientEmail', async(req, res) => {
+  router.get('/patient/:patientEmail', async(req, res) => {
     // Read the doctor name from the query parameters
     appointments=[];
     const patientEmail = req.params.patientEmail;

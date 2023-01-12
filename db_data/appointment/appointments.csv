@@ -1,9 +1,4 @@
-appointmentId, doctorID, PatientID, PatientEmail, DoctorName, appointmentDate
-4320,541003941Parth,15149920378,vasu.khanna@mail.mcgill.ca,Parth,2023-01-16
-c4ec,541003941Parth,15149920378,vasu.khanna@mail.mcgill.ca,Parth,2023-01-04
-5fc9,541003941Parth,15149920378,vasu.khanna@mail.mcgill.ca,Parth,2023-01-11
-7d8c,541003941Parth,15149920378,vasu.khanna@mail.mcgill.ca,Parth,2023-01-11
-8f01,541003941Parth,15149920378,vasu.khanna@mail.mcgill.ca,Parth,2023-01-04
-4e3a,541003941Parth,15149920378,vasu.khanna@mail.mcgill.ca,Parth,2023-01-16
-b52e,541003941Parth,15149920378,vasu.khanna@mail.mcgill.ca,Parth,2023-01-24
-a6e2,541003941Parth,15149920378,vasu.khanna@mail.mcgill.ca,Parth,2023-01-18
+appointmentId, doctorID, PatientID, PatientEmail, DoctorName, appointmentDate,appointmentTime,doctorEmail
+3524,541003941Parth,15149920378,vasu.khanna@mail.mcgill.ca,Parth,2023-01-16,10:00,vasuk@mail.com
+7d9c,541003941Parth,541003941,vasu@mail.com,Parth,2023-01-16,11:00,vasuk@mail.com
+da9f,541003941Parth,541003941,vasu@mail.com,Parth,2023-01-12,8:00,vasuk@mail.com

@@ -4,6 +4,8 @@
     <h1 style="color:white">MH</h1>
     <div class="d-flex">
       <!-- <button (click)="clickAddPatient()" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success"> Add Patient</button> -->
+      <button routerLink="/dashboard" class="btn btn-danger"> All Patients</button>
+      <button routerLink="/home" class="btn btn-danger"> Book Appointment</button>
       <button routerLink="/login" class="btn btn-danger"> Logout</button>
 
     </div>
@@ -16,7 +18,9 @@
     <th scope="col"> Appointment ID</th>
     <th scope="col">date</th>
     <th scope="col">Doctor Name</th>
-    <th scope="col">Patient Name</th>
+    <!-- <th scope="col">Patient Email</th> -->
+    <th scope="col">Time</th>
+
     <th scope="col">Action</th>
 
 
@@ -25,10 +29,11 @@
   <tbody>
     <tr *ngFor="let row of AppointmentData">
       <td>{{row.appointmentId}}</td>
-      <td>{{row.appointmentDate}}</td>
-      <td>{{row.DoctorName}}</td>
-      <td>{{row.PatientName}}</td>
-      
+      <td>{{row.date}}</td>
+      <td>{{row.doctorName}}</td>
+      <!-- <td>{{row.PatientEmail}}</td> -->
+      <td>{{row.appointmentTime}}</td>
+
       <td>
         <button (click)="cancelAppointment(row)"class="btn btn-danger mx-3">Delete</button>
 

@@ -7,7 +7,7 @@
     <h1 style="color:white">MH</h1>
     <div class="d-flex">
       <!-- <button (click)="clickAddPatient()" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success"> Add Patient</button> -->
-      <button routerLink="/dashboard" class="btn btn-success"> View Doctors</button>
+      <button routerLink="/doctor" class="btn btn-success"> View Doctors</button>
       <button class="btn btn-success"> Edit profile</button>
       <button routerLink="/login" class="btn btn-danger"> Logout</button>
 
@@ -23,25 +23,25 @@
     <div *ngFor="let doctor of allDoctors">
       {{ doctor.name }}
     </div>
-  </div> --> -->
+  </div> -->
 
   <form form [formGroup]="formValue">
 
     <mat-form-field>
-      <input formControlName="appointmentDate" name="appointmentDate" matInput [matDatepicker]="picker" placeholder="Choose a date">
+      <input formControlName="appointmentDate" name="appointmentDate" matInput [matDatepicker]="picker" placeholder="Choose a date" required>
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
-    <mat-form-field>
+    <!-- <mat-form-field>
       <mat-label>Select time</mat-label>
       <input matInput formControlName="appointmentTime" type="time" step="1800">
-    </mat-form-field>
+    </mat-form-field> -->
 
     <mat-form-field appearance="fill">
       <mat-label>Doctor Name</mat-label>
-      <mat-select formControlName="selectedValue" name="doctor">
+      <mat-select formControlName="selectedValue" name="doctor" required>
         <div *ngIf="allDoctors$ | async as allDoctors">
-          <mat-option *ngFor="let doctor of allDoctors" [value]="doctor.name">
+          <mat-option *ngFor="let doctor of allDoctors" [value]="doctor.name" required>
               {{ doctor.name }}
           </mat-option>
         </div>
@@ -54,18 +54,18 @@
 
     <mat-form-field appearance="fill">
       <mat-label>Timeslot</mat-label>
-      <mat-select formControlName="slotValue" name="slotValue">
+      <mat-select formControlName="slotValue" name="slotValue" required>
         <mat-option *ngFor="let slot of timeSlot" [value]="slot">
           {{slot}}
         </mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field>
-      <input formControlName="patientEmail" name="patientEmail" matInput placeholder="Patient Email">
+      <input formControlName="patientEmail" name="patientEmail" matInput placeholder="Patient Email" required>
     </mat-form-field>
-    <mat-form-field>
+    <!-- <mat-form-field>
       <input formControlName="doctorName" name="doctorName" matInput placeholder="Doctor Name">
-    </mat-form-field>
+    </mat-form-field> -->
     <button (click)="createAppointment()" mat-raised-button color="primary">Make Appointment</button>
   </form>
 

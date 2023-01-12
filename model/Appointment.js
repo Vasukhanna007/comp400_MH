@@ -6,11 +6,12 @@ const parse = require('csv-parse').parse;
 
 
 class Appointment{
-    constructor(patient,doctor,appointmentDate){
+    constructor(patient,doctor,appointmentDate,time){
         this.patient = patient;
         this.doctor = doctor;
         this.appointmentDate = appointmentDate;
         this.appointmentId = Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+        this.time= time;
     }
 
     getPatient() {
@@ -28,7 +29,7 @@ class Appointment{
         return this.appointmentDate;
       }
 
-      formatDate(dates){
+      static formatDate(dates){
         const date = new Date(dates);
         const formattedDate = date.toISOString().slice(0, 10);
         return formattedDate;
@@ -36,12 +37,38 @@ class Appointment{
       
     toCsvString() {
         
-    return `${this.appointmentId},${this.getDoctorID()},${this.getPatientID()},${this.patient.email},${this.doctor.name},${this.formatDate(this.appointmentDate)}`;
+    return `${this.appointmentId},${this.getDoctorID()},${this.getPatientID()},${this.patient.email},${this.doctor.name},${Appointment.formatDate(this.appointmentDate)},${this.time},${this.doctor.email}`;
     
   }
 
+  static async checkAvailability(doctorId, date, time) {
+    return new Promise((resolve, reject) => {
+    // Create a variable to store the availability status
+    let isAvailable = true;
 
-    static async getAppointmentsByDoctorName(doctorName){
+    // Read the CSV file using fs.createReadStream
+    fs.createReadStream(reqPath)
+      .pipe(parse({ delimiter: ',', relax_quotes: true }))
+      .on('data', row => {
+        // Check if the doctor id, date, and time in the row match the given parameters
+        if (row[1] === doctorId && row[5] === date && row[6] === time) {
+          // If they match, change the availability status to false
+          isAvailable = false;
+        }
+      })
+      .on('end', () => {
+        // Return the availability status
+        console.log('Available insidee',isAvailable)
+
+        resolve(isAvailable);
+        
+        reject(new Error(`this ${date} and ${time} is not available`));
+      });
+      });
+}
+
+
+    static async getAppointmentsByDoctorEmail(doctorEmail){
       return new Promise((resolve, reject) => {
       appointments=[]
 
@@ -49,7 +76,7 @@ class Appointment{
       .pipe(parse({ delimiter: ',', relax_quotes: true }))
       .on('data', row => {
         // Check if the doctor name in the row matches the given doctor name
-        if (row[4] === doctorName) {
+        if (row[7] === doctorEmail) {
           // If it matches, add the appointment to the appointments array
           appointments.push({
             appointmentId: row[0],
@@ -57,7 +84,10 @@ class Appointment{
             patientID:row[2],
             patientName: row[3],
             doctorName: row[4],
-            date:row[5]
+            date:row[5],
+            appointmentTime:row[6],
+            doctorEmail:row[7]
+
           });
         }
       })
@@ -89,9 +119,11 @@ class Appointment{
             appointmentId: row[0],
             doctorID:row[1],
             patientID:row[2],
-            patientName: row[3],
+            patientEmail: row[3],
             doctorName: row[4],
-            date:row[5]
+            date:row[5],
+            appointmentTime:row[6],
+            doctorEmail:row[7]
           });
         }
       })
