@@ -47,7 +47,7 @@ class Patient extends Person {
               if (patient) {
                 resolve(patient);
               } else {
-                reject(new Error(`Patient with name ${name} not found`));
+                reject(new Error(`Patient with name ${email} not found`));
               }
             });
         });

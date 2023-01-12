@@ -25,17 +25,31 @@ export class AppointmentListComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.api.getAppointment()
-    .subscribe(res=>{
-      console.log(res);
+  //   this.api.getAppointment()
+  //   .subscribe(res=>{
+  //     console.log(res);
 
-      this.AppointmentData=res;
-      this.loading=false;
-    }
-  ,err=>{
-    alert("something went wrong");
-    this.loading= false;
-  })
+  //     this.AppointmentData=res;
+  //     this.loading=false;
+  //   }
+  // ,err=>{
+  //   alert("something went wrong");
+  //   this.loading= false;
+  // })
+
+  // this.api.getAppointmentsbydoctor(this.api.email)
+  // .subscribe(res=>{
+  //   console.log(res);
+  //   this.AppointmentData=res;
+  // });
+
+this.api.getAppointmentsbypatient(this.api.email)
+  .subscribe(res=>{
+    console.log(res);
+    this.AppointmentData=res;
+  });
+
+
   }
 
   getAllAppointments(){

@@ -1,5 +1,5 @@
 name,dob,gender,email,phone,language,patientId,password,medicalHistory
-arth,10/01/2000,M,vasu@mail.com,541003941,['English'],541003943arth,fass,['anxiety']
 suv,khanna.vasu378@gmail.com,khanna.vasu378@gmail.com,khanna.vasu378@gmail.com,5149920378,15149920378,5149920378,default,5149920378
 vasu,vasu.khanna@mail.mcgill.ca,vasu.khanna@mail.mcgill.ca,vasu.khanna@mail.mcgill.ca,15149920378,vasu,15149920378,default,parth
 avi,10/01/2000,M,150@doonschool.com,09316990999,english,09316990999,default,h
+Avi,10/01/2000,M,vasu@mail.com,541003941,['English'],541003941,default,['anxiety']

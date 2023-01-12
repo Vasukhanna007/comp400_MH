@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpClientModule} from '@angular/common/http'
 import {map} from 'rxjs/operators'
+
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
+   email!: string;
 
   constructor(private http: HttpClient ) { }
 
@@ -53,6 +55,13 @@ export class ApiService {
 
   getAppointmentsbydoctor(doctorName:any){
     return this.http.get<any>("http://localhost:3001/appointment/"+doctorName)
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+
+  getAppointmentsbypatient(paientEmail:any){
+    return this.http.get<any>("http://localhost:3001/appointment/patient/"+paientEmail)
     .pipe(map((res:any)=>{
       return res;
     }))
