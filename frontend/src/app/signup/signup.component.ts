@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {FormGroup,FormBuilder, Form} from "@angular/forms"
 import { Router } from '@angular/router';
+import { ApiService } from '../shared/api.service';
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -9,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
   public signupForm!: FormGroup;
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router ){
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router,private api: ApiService ){
 
   }
   ngOnInit(): void{
@@ -17,14 +19,16 @@ export class SignupComponent implements OnInit {
       name:[''],
       dob:[''],
       gender:[''],
-      phone:[''],
       email:[''],
-      password:['']
+      phone:[''],
+      language:[''],
+      password:[''],
+      medicalHistory:[]
     })
   }
   // console.log(this.signupForm.value);
   signUp(){
-    this.http.post<any>('http://localhost:3000/signupUsers',this.signupForm.value).subscribe(res =>{
+    this.api.postPatient(this.signupForm.value).subscribe(res =>{
       alert("Signup Successfull");
       this.signupForm.reset();
       this.router.navigate(['login']);
