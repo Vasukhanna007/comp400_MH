@@ -23,6 +23,8 @@ export class AppointmentListComponent implements OnInit{
   constructor(private api: ApiService){
 
   }
+  isAdmin:boolean=this.api.admin
+  isDoctor:boolean=this.api.doctor;
 
   ngOnInit(): void {
   //   this.api.getAppointment()
@@ -42,13 +44,16 @@ export class AppointmentListComponent implements OnInit{
   //   console.log(res);
   //   this.AppointmentData=res;
   // });
-
+  if(this.api.admin){
+    this.getAllAppointments()
+  }
+else{
 this.api.getAppointmentsbypatient(this.api.email)
   .subscribe(res=>{
     console.log(res);
     this.AppointmentData=res;
   });
-
+}
 
   }
 

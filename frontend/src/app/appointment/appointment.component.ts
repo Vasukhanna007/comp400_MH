@@ -79,12 +79,19 @@ timeSlot: string[] = ["8:00","9:00","10:00","11:00","12:00","1:00","2:00","3:00"
     console.log(this.appointmentsObj)
      this.api.postAppointment(this.appointmentsObj)
     .subscribe(res=>{
+      if(this.appointmentsObj.patientEmail && this.appointmentsObj.doctorName &&this.appointmentsObj.appointmentDate && this.appointmentsObj.appointmentTime){
+        this.successMsg = `Appointment Booked Successfully for ${this.appointmentsObj.appointmentDate}`;
+        let ref = document.getElementById('cancel')
+        ref?.click();
+        this.formValue.reset();
+        this.getAllAppointments();
+      }
       //problem appointment doesnt get booked but printing wrong message
-      this.successMsg = `Appointment Booked Successfully for ${this.appointmentsObj.appointmentDate}`;
-      let ref = document.getElementById('cancel')
-      ref?.click();
-      this.formValue.reset();
-      this.getAllAppointments();
+      else{
+        this.errorMsg = "Input is wrong or apointment isn't available"
+
+      }
+
 
     },
     err=>{

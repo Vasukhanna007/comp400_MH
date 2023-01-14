@@ -7,6 +7,8 @@ import {map} from 'rxjs/operators'
 })
 export class ApiService {
    email!: string;
+  admin: boolean = false;
+  doctor: boolean=false;
 
   constructor(private http: HttpClient ) { }
 
@@ -16,6 +18,14 @@ export class ApiService {
       return res;
     }))
   }
+
+  postDoctor(data:any){
+    return this.http.post<any>("http://localhost:3001/doctor",data)
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+
 
   getPatient(){
     return this.http.get<any>("http://localhost:3001/patient");

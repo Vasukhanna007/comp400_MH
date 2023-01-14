@@ -6,7 +6,7 @@ class HospitalEmployee extends Person {
         //'super' calls the parent constructor
         super(name,dob,gender,email,phone,language);
         this.certifications = certifications;
-        this.remainingVacationDays = 14;
+        // this.remainingVacationDays = 14;
 
 
     }

@@ -7,7 +7,7 @@
 
     <div class="d-flex">
       <!-- <button (click)="clickAddPatient()" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success"> Add Patient</button> -->
-      <button routerLink="/dashboard" class="btn btn-danger"> All Patients</button>
+      <button *ngIf="isAdmin || isDoctor"  routerLink="/dashboard" class="btn btn-danger"> All Patients</button>
       <button routerLink="/home" class="btn btn-danger"> Book Appointment</button>
       <button routerLink="/login" class="btn btn-danger"> Logout</button>
 
@@ -32,8 +32,8 @@
   <tbody>
     <tr *ngFor="let row of AppointmentData">
       <td>{{row.appointmentId}}</td>
-      <td>{{row.date}}</td>
-      <td>{{row.doctorName}}</td>
+      <td>{{row.appointmentDate}}</td>
+      <td>{{row.DoctorName}}</td>
       <!-- <td>{{row.PatientEmail}}</td> -->
       <td>{{row.appointmentTime}}</td>
 

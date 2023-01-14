@@ -8,7 +8,7 @@ path = require('path')
 const DATA_DIR= './db_data';
 let patientPath = path.join(__dirname,'..','..', 'db_data','patient','patients.csv');
 let docPath = path.join(__dirname,'..','..', 'db_data','doctor','doctors.csv');
-
+let adminPath = path.join(__dirname,'..','..', 'db_data','admin','admin.csv');
 console.log('here',patientPath)
 
 // function isValidCredentials(){
@@ -99,6 +99,36 @@ res.send(auth);
     // console.log(typeof(data));
 
 }
+else if(req.body.isAdmin){
+  const destinationFile = adminPath;
+  var csvData=[];
+  fs.createReadStream(destinationFile).pipe(parse({delimiter: ',',relax_quotes: true})).on('data', function(csvrow) {
+    console.log("this is csv row",csvrow)
+
+  if (csvrow.includes(req.body.email) && (csvrow.includes(req.body.password) )){
+      auth=true
+      console.log("this is csv row",csvrow)
+
+      console.log("Authenticated")
+  }
+
+  //do something with csvrow
+  csvData.push(csvrow);        
+})
+.on('end',function() {
+//do something with csvData
+//   console.log(csvData);
+ 
+
+if(auth===false){
+  console.log('failed')
+}
+res.send(auth);
+});
+
+
+}
+
 else{
     const destinationFile = patientPath;
     var csvData=[];

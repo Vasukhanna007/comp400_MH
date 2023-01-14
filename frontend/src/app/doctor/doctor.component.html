@@ -5,6 +5,7 @@
     <div class="d-flex">
       <!-- <button (click)="clickAddPatient()" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success"> Add Patient</button> -->
       <button routerLink="/home" class="btn btn-success"> Book Appointment</button>
+      <button *ngIf="isAdmin" (click)="clickAddDoctor()" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success"> Add Doctor</button>
 
       <button routerLink="/login" class="btn btn-danger"> Logout</button>
 
@@ -39,3 +40,57 @@
     </tr>
   </tbody>
 </table>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Patient Detail</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formValue">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Name</label>
+            <input type="text" formControlName="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">DOB</label>
+            <input type="text" formControlName="dob" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Gender</label>
+            <input type="text" formControlName="gender" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Email ID</label>
+            <input type="email" formControlName="email" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Phone No</label>
+            <input type="text" formControlName="phone" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Language</label>
+            <input type="text" formControlName="language" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">certifications</label>
+            <input type="text" formControlName="certifications" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">speciality</label>
+            <input type="text" formControlName="speciality" class="form-control" id="exampleInputPassword1">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" *ngIf="showAdd" (click)="postDoctorDetails()" class="btn btn-primary">Add</button>
+        <!-- <button type="button" *ngIf="showUpdate" (click)="updatePatientDetails()" class="btn btn-primary">Update</button> -->
+      </div>
+    </div>
+  </div>
+</div>
