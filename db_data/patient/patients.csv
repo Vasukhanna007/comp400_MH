@@ -1,1 +1,4 @@
+name,dob,gender,email,phone,language,patientId,password,medicalHistory
 ish,10/01/2000,M,divya.jaidka13@gmail.com,613993933,English,613993933,ja,N
+nel,10/01/2000,F,nel@mail.com,87656789876,english,87656789876,default,a
+arjub,10/01/2000,M,as@mail.com,123456,english,123456,default,a

@@ -15,6 +15,8 @@ export class EmployeeDashboardComponent implements OnInit{
   showUpdate!: boolean;
 
   constructor( private formbuilder: FormBuilder,private api: ApiService){}
+  isAdmin:boolean=this.api.admin
+  isDoctor:boolean=this.api.doctor;
 
   ngOnInit(): void{
     this.formValue = this.formbuilder.group({
@@ -47,7 +49,7 @@ export class EmployeeDashboardComponent implements OnInit{
     this.api.postPatient(this.employeeModelObj)
     .subscribe(res=>{
       console.log(res);
-      alert("Employee Added Succeessfully")
+      alert("Patient Added Succeessfully")
       let ref = document.getElementById('cancel')
       ref?.click();
       this.formValue.reset();

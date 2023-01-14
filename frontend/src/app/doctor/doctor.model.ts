@@ -1,5 +1,4 @@
 export class DoctorModel{
-  doctorId: number =0;
   name: string = '';
   dob: string ='';
   gender: string='';

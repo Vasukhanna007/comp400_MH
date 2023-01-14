@@ -81,10 +81,10 @@ class Appointment{
           appointments.push({
             appointmentId: row[0],
             doctorID:row[1],
-            patientID:row[2],
+            PatientID:row[2],
             patientName: row[3],
-            doctorName: row[4],
-            date:row[5],
+            DoctorName: row[4],
+            appointmentDate:row[5],
             appointmentTime:row[6],
             doctorEmail:row[7]
 
@@ -118,10 +118,10 @@ class Appointment{
           appointments.push({
             appointmentId: row[0],
             doctorID:row[1],
-            patientID:row[2],
-            patientEmail: row[3],
-            doctorName: row[4],
-            date:row[5],
+            PatientID:row[2],
+            patientName: row[3],
+            DoctorName: row[4],
+            appointmentDate:row[5],
             appointmentTime:row[6],
             doctorEmail:row[7]
           });

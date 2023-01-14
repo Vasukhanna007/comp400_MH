@@ -20,10 +20,10 @@ router.post('/',(req,res,next) => {
     const doctor1= new Doctor(req.body.name,req.body.dob, req.body.gender,req.body.email,req.body.phone,req.body.language,req.body.certifications,req.body.speciality, req.body.password);
     // var patient1= new Patient("vasu","20", "[anxiety, ADHD]");
 
-    console.log(doctor1)
+    console.log("this nw",doctor1)
     const destinationFile = reqPath;
     // console.log(destinationFile)
-    let count  =  -2 // no of autofill values
+    let count  =  -1 // no of autofill values
     console.log(Object.keys(req.body).length)
     // arr = console.log(Object.values(doctor1))
     

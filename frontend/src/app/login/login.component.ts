@@ -20,13 +20,16 @@ export class LoginComponent implements OnInit {
     this.loginForm = this.formBuilder.group({
       email:[''],
       password:[''],
-      isDoctor:false
+      isDoctor:false,
+      isAdmin:false
     })
   }
 
   login(loginForm: any){
-    const data={"email":loginForm.value.email,"password":loginForm.value.password,"isDoctor": loginForm.value.isDoctor}
-    console.log(data.isDoctor)
+    const data={"email":loginForm.value.email,"password":loginForm.value.password,"isDoctor": loginForm.value.isDoctor,"isAdmin":loginForm.value.isAdmin}
+    console.log('this is doctor',data.isDoctor)
+    console.log("is admin",data.isAdmin)
+
     this.api.auth(data).subscribe(res=>{
       console.log("res",res);
       //not working??
@@ -36,10 +39,17 @@ export class LoginComponent implements OnInit {
          this.loginForm.reset();
          if(data.isDoctor){
           console.log(data.email);
+          this.api.doctor = true;
 
             this.api.email = data.email;
 
           this.router.navigate(['appointment-list']);
+        }
+        else if(data.isAdmin){
+          this.api.admin = true;
+          this.router.navigate(['appointment-list']);
+
+
         }
         else{
           this.api.email = data.email;
