@@ -39,7 +39,7 @@ Admin/doctor can view all patients
 
 <img width="1440" alt="Screen Shot 2023-01-15 at 4 19 59 PM" src="https://user-images.githubusercontent.com/43357391/212568228-8d0c8e5b-a694-4562-a2d0-af320550d6b4.png">
 View doctors
-<br />
+
 Technologies Used:
 NodeJs, Angular, Git
 <br />
