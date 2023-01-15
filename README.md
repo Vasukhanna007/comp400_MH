@@ -60,5 +60,5 @@ b)	Features to add:
 •	To Add Billing, Prescription, sending notification, video calling features to the application
 •	Better error handling and robust testing.
 •	To make it accessible and inclusive for users with disabilities and diverse needs
-![image](https://user-images.githubusercontent.com/43357391/212573869-b18938ea-d0ab-4ff5-b926-5397f3b8b83d.png)
+
 
