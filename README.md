@@ -45,8 +45,20 @@ View doctors
 
 
 
-Technologies Used: A list of the technologies, frameworks, and libraries used in the project.
+Technologies Used:
+NodeJs, Angular, Git
 
-Future plans or roadmap: Information on planned features or bug fixes.
+a)	Things to fix:
+•	When a user refreshes the page, the environment variables are destroyed, causing the application to not know what access (admin, doctor, or patient) to grant to the user.
+•	The application should move from a CSV database to a proper database, as the use of a CSV file can be resource-intensive and may lead to unexpected errors if the data provided is incorrect.
+•	The application should include better error handling and more robust testing, such as writing integration tests to ensure that different parts of the application are working correctly together.
+•	The application should include a better user interface for a better user experience.
 
+
+Future plans or roadmap
+b)	Features to add:
+•	To Add Billing, Prescription, sending notification, video calling features to the application
+•	Better error handling and robust testing.
+•	To make it accessible and inclusive for users with disabilities and diverse needs
+![image](https://user-images.githubusercontent.com/43357391/212573869-b18938ea-d0ab-4ff5-b926-5397f3b8b83d.png)
 
