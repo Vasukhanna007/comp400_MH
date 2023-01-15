@@ -39,26 +39,28 @@ Admin/doctor can view all patients
 
 <img width="1440" alt="Screen Shot 2023-01-15 at 4 19 59 PM" src="https://user-images.githubusercontent.com/43357391/212568228-8d0c8e5b-a694-4562-a2d0-af320550d6b4.png">
 View doctors
-
-
-
-
-
-
+<br />
 Technologies Used:
 NodeJs, Angular, Git
+<br />
+
 
 a)	Things to fix:
 •	When a user refreshes the page, the environment variables are destroyed, causing the application to not know what access (admin, doctor, or patient) to grant to the user.
+<br />
 •	The application should move from a CSV database to a proper database, as the use of a CSV file can be resource-intensive and may lead to unexpected errors if the data provided is incorrect.
+<br />
 •	The application should include better error handling and more robust testing, such as writing integration tests to ensure that different parts of the application are working correctly together.
+<br />
 •	The application should include a better user interface for a better user experience.
-
+<br />
 
 Future plans or roadmap
 b)	Features to add:
 •	To Add Billing, Prescription, sending notification, video calling features to the application
+<br />
 •	Better error handling and robust testing.
+<br />
 •	To make it accessible and inclusive for users with disabilities and diverse needs
 
 
