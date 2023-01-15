@@ -23,7 +23,25 @@ One reason for choosing this mental health clinic management software for a Comp
 Troubleshooting:
 If you have any issues, please make sure that you are running the latest versions of Node.js and Angular CLI.
 
-Screenshots or gifs: Showcase the features and the running application
+<img width="1436" alt="Screen Shot 2023-01-15 at 4 31 03 PM" src="https://user-images.githubusercontent.com/43357391/212568333-64f53d8d-3d3d-455b-9bc4-a35b0feca030.png">
+login as patient, doctor or admin
+<img width="1440" alt="Screen Shot 2023-01-15 at 4 22 40 PM" src="https://user-images.githubusercontent.com/43357391/212568214-8e97fc79-ae69-408d-84e8-9bc486719bd3.png">
+Edit patient (doctor and admin get access)
+<img width="1440" alt="Screen Shot 2023-01-15 at 4 22 30 PM" src="https://user-images.githubusercontent.com/43357391/212568219-0b5db33e-e4cb-44fe-85cd-8210c4978433.png">
+Add Patient(doctor and admin get access)
+<img width="1440" alt="Screen Shot 2023-01-15 at 4 22 20 PM" src="https://user-images.githubusercontent.com/43357391/212568222-c19698ea-113c-4070-994b-8b56cc6dd235.png">
+(Admin gets to view all upcoming appointments whereas doctor and patient can only see their appointments)
+<img width="1439" alt="Screen Shot 2023-01-15 at 4 21 58 PM" src="https://user-images.githubusercontent.com/43357391/212568223-c30ca3cc-06fc-4866-b1d3-03765f041e35.png">
+Admin/doctor can view all patients
+
+
+<img width="1440" alt="Screen Shot 2023-01-15 at 4 19 59 PM" src="https://user-images.githubusercontent.com/43357391/212568228-8d0c8e5b-a694-4562-a2d0-af320550d6b4.png">
+View doctors
+
+
+
+
+
 
 Technologies Used: A list of the technologies, frameworks, and libraries used in the project.
 
