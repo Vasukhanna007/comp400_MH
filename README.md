@@ -46,6 +46,7 @@ NodeJs, Angular, Git
 
 
 a)	Things to fix:
+<br />
 •	When a user refreshes the page, the environment variables are destroyed, causing the application to not know what access (admin, doctor, or patient) to grant to the user.
 <br />
 •	The application should move from a CSV database to a proper database, as the use of a CSV file can be resource-intensive and may lead to unexpected errors if the data provided is incorrect.
@@ -56,7 +57,9 @@ a)	Things to fix:
 <br />
 
 Future plans or roadmap
+<br />
 b)	Features to add:
+<br />
 •	To Add Billing, Prescription, sending notification, video calling features to the application
 <br />
 •	Better error handling and robust testing.
