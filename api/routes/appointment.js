@@ -180,7 +180,7 @@ function findByIdAndDelete(id, csvFilePath) {
   
     // Split the CSV data into an array of lines
     const lines = csvData.split('\n');
-    console.log(lines);
+    // console.log(lines);
 
     // Remove the line with the matching ID
     const modifiedLines = lines.filter(line => {
@@ -191,7 +191,7 @@ function findByIdAndDelete(id, csvFilePath) {
         // Return false if the first field matches the ID, true otherwise
         return fields[0] !== id;
       });
-   console.log(modifiedLines.join('\n'));
+  //  console.log(modifiedLines.join('\n'));
     // Write the modified data back to the CSV file
     fs.writeFileSync(csvFilePath, modifiedLines.join('\n'), 'utf8');
   };

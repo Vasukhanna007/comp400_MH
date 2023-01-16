@@ -25,7 +25,6 @@ export class AppointmentListComponent implements OnInit{
   }
   isAdmin:boolean=this.api.admin
   isDoctor:boolean=this.api.doctor;
-
   ngOnInit(): void {
   //   this.api.getAppointment()
   //   .subscribe(res=>{
@@ -43,10 +42,18 @@ export class AppointmentListComponent implements OnInit{
   // .subscribe(res=>{
   //   console.log(res);
   //   this.AppointmentData=res;
+  console.log(this.api.email)
   // });
+  console.log(this.isDoctor, this.isAdmin)
   if(this.api.admin){
     this.getAllAppointments()
   }
+  else if(this.isDoctor){
+    this.api.getAppointmentsbydoctor(this.api.email)
+    .subscribe(res=>{
+    console.log(res);
+    this.AppointmentData=res;
+  });  }
 else{
 this.api.getAppointmentsbypatient(this.api.email)
   .subscribe(res=>{
@@ -76,7 +83,26 @@ this.api.getAppointmentsbypatient(this.api.email)
   cancelAppointment(row: any){
     this.api.deleteAppointment(row.appointmentId).subscribe(res=>{
       alert("Appointment Deleted");
-      this.getAllAppointments();
+      if(this.isAdmin){
+        this.getAllAppointments();
+      }
+      else if(this.isDoctor){
+        this.api.getAppointmentsbydoctor(this.api.email)
+    .subscribe(res=>{
+    console.log(res);
+    this.AppointmentData=res;
+  });
+      }
+      else{
+      this.api.getAppointmentsbypatient(this.api.email)
+    .subscribe(res=>{
+    console.log(res);
+    this.AppointmentData=res;
+  });
+}
+
+      // this.getAllAppointments();
+
     })
 
 
