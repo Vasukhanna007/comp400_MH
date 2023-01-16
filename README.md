@@ -28,7 +28,9 @@ login as patient, doctor or admin
 <img width="1435" alt="Screen Shot 2023-01-15 at 5 41 25 PM" src="https://user-images.githubusercontent.com/43357391/212571037-33e8746e-846e-4e11-bcb4-6cdf91c12acc.png">
 Sign Up
 <img width="1440" alt="Screen Shot 2023-01-15 at 4 22 40 PM" src="https://user-images.githubusercontent.com/43357391/212568214-8e97fc79-ae69-408d-84e8-9bc486719bd3.png">
-Edit patient (doctor and admin get access)
+Edit patient 
+(doctor and admin get access)<img width="1440" alt="Screen Shot 2023-01-16 at 3 19 18 AM" src="https://user-images.githubusercontent.com/43357391/212630117-7051eb92-b0a0-4540-98d3-0230c1011773.png">
+book appointment screen
 <img width="1440" alt="Screen Shot 2023-01-15 at 4 22 30 PM" src="https://user-images.githubusercontent.com/43357391/212568219-0b5db33e-e4cb-44fe-85cd-8210c4978433.png">
 Add Patient(doctor and admin get access)
 <img width="1440" alt="Screen Shot 2023-01-15 at 4 22 20 PM" src="https://user-images.githubusercontent.com/43357391/212568222-c19698ea-113c-4070-994b-8b56cc6dd235.png">
