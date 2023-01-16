@@ -67,5 +67,6 @@ b)	Features to add:
 •	Better error handling and robust testing.
 <br />
 •	To make it accessible and inclusive for users with disabilities and diverse needs
+•	Better security
 
 
